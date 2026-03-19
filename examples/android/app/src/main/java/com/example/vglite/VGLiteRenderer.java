@@ -1,10 +1,12 @@
 package com.example.vglite;
 
+import android.view.Surface;
+
 /**
- * VGLiteRenderer - JNI bridge for VGLite rendering operations.
+ * VGLiteRenderer - JNI bridge for VGLite rendering operations with EGL/OpenGL ES.
  * 
- * This class provides a simple API for initializing VGLite,
- * clearing the buffer to red, and managing the render lifecycle.
+ * This class provides an API for initializing VGLite with EGL,
+ * starting/stopping color cycling animation, and managing the render lifecycle.
  */
 public class VGLiteRenderer {
     
@@ -29,50 +31,31 @@ public class VGLiteRenderer {
     }
     
     /**
-     * Initialize VGLite and allocate the render buffer.
-     * Must be called before any rendering operations.
+     * Initialize VGLite with EGL using a Surface.
+     * Must be called before starting rendering.
      * 
+     * @param surface Android Surface to render to
      * @return true if initialization succeeded, false otherwise
      */
-    public boolean init() {
-        return nativeInit(width, height);
+    public boolean initWithSurface(Surface surface) {
+        return nativeInitWithSurface(surface);
     }
     
     /**
-     * Clear the render buffer to red color.
-     * 
-     * @return true if clear succeeded, false otherwise
+     * Start the color cycling animation render thread.
+     * Colors cycle: Red -> Green -> Blue -> Yellow -> Cyan
+     * Each color displays for approximately 1 second (~60 frames).
      */
-    public boolean clear() {
-        return nativeClear();
+    public void renderStart() {
+        nativeRenderStart();
     }
     
     /**
-     * Render the buffer (flush and finish).
-     * 
-     * @return true if render succeeded, false otherwise
+     * Stop the render thread.
+     * Must be called before cleanup or when pausing.
      */
-    public boolean render() {
-        return nativeRender();
-    }
-    
-    /**
-     * Get the buffer memory pointer.
-     * Useful for reading pixel data.
-     * 
-     * @return pointer to buffer memory as long
-     */
-    public long getBufferMemory() {
-        return nativeGetBufferMemory();
-    }
-    
-    /**
-     * Get the buffer stride (bytes per row).
-     * 
-     * @return stride in bytes
-     */
-    public int getBufferStride() {
-        return nativeGetBufferStride();
+    public void renderStop() {
+        nativeRenderStop();
     }
     
     /**
@@ -94,7 +77,7 @@ public class VGLiteRenderer {
     }
     
     /**
-     * Release all resources and close VGLite.
+     * Release all resources including EGL and VGLite.
      * Must be called when done with the renderer.
      */
     public void cleanup() {
@@ -106,32 +89,29 @@ public class VGLiteRenderer {
     // ========================================================================
     
     /**
-     * Initialize VGLite and create render buffer.
+     * Initialize VGLite with EGL using a Surface.
      */
-    private native boolean nativeInit(int width, int height);
+    private native boolean nativeInitWithSurface(Object surface);
     
     /**
-     * Clear the buffer to red color.
+     * Start the render thread with color cycling.
      */
-    private native boolean nativeClear();
+    private native void nativeRenderStart();
     
     /**
-     * Render the buffer (flush and finish).
+     * Stop the render thread.
      */
-    private native boolean nativeRender();
+    private native void nativeRenderStop();
     
     /**
-     * Get buffer memory pointer.
-     */
-    private native long nativeGetBufferMemory();
-    
-    /**
-     * Get buffer stride.
-     */
-    private native int nativeGetBufferStride();
-    
-    /**
-     * Free resources and close VGLite.
+     * Free all resources and close VGLite.
      */
     private native void nativeCleanup();
+    
+    // Legacy methods for backward compatibility
+    private native boolean nativeInit(int width, int height);
+    private native boolean nativeClear();
+    private native boolean nativeRender();
+    private native long nativeGetBufferMemory();
+    private native int nativeGetBufferStride();
 }

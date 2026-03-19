@@ -31,6 +31,12 @@
     #include "../../../third_party/thorvg_v1.0/renderer/gl_engine/tvgGl.h"
     #ifdef _WIN32
         #include <windows.h>
+    #elif defined(__ANDROID__)
+        #include <EGL/egl.h>
+        /* NOTE: Do NOT include <GLES3/gl3.h> here!
+         * ThorVG's tvgGl.h defines its own GL function pointers.
+         * Including native GLES headers causes redefinition conflicts.
+         * ThorVG loads GL functions internally at runtime. */
     #endif
 #endif
 
@@ -186,25 +192,47 @@ typedef struct {
 
 #pragma pack()
 
-class vg_lite_ctx
-{
-    public:
-        std::unique_ptr<Canvas> canvas;
-        void * target_buffer;
-        void * tvg_target_buffer;
-        vg_lite_uint32_t target_px_size;
-        vg_lite_buffer_format_t target_format;
-        vg_lite_rectangle_t scissor_rect;
-        bool scissor_is_set;
+ class vg_lite_ctx
+ {
+     public:
+         std::unique_ptr<Canvas> canvas;
+         void * target_buffer;
+         void * tvg_target_buffer;
+         vg_lite_uint32_t target_px_size;
+         vg_lite_uint32_t target_width;
+         vg_lite_uint32_t target_height;
+         vg_lite_buffer_format_t target_format;
+         vg_lite_rectangle_t scissor_rect;
+         bool scissor_is_set;
+         
+         #if VG_LITE_RENDER_BACKEND == VG_LITE_RENDER_GL
+         /* Custom FBO for GL backend - gives us control over the final blit */
+         GLuint custom_fbo;
+         GLuint custom_fbo_texture;
+         GLuint custom_fbo_depth_stencil;
+         uint32_t custom_fbo_width;
+         uint32_t custom_fbo_height;
+         bool custom_fbo_initialized;
+         #endif
 
-    public:
-        vg_lite_ctx()
-            : target_buffer { nullptr }
-            , tvg_target_buffer { nullptr }
-            , target_px_size { 0 }
-            , target_format { VG_LITE_BGRA8888 }
+     public:
+         vg_lite_ctx()
+             : target_buffer { nullptr }
+             , tvg_target_buffer { nullptr }
+             , target_px_size { 0 }
+             , target_width { 0 }
+             , target_height { 0 }
+             , target_format { VG_LITE_BGRA8888 }
             , scissor_rect { 0, 0, 0, 0 }
             , scissor_is_set { false }
+            #if VG_LITE_RENDER_BACKEND == VG_LITE_RENDER_GL
+            , custom_fbo { 0 }
+            , custom_fbo_texture { 0 }
+            , custom_fbo_depth_stencil { 0 }
+            , custom_fbo_width { 0 }
+            , custom_fbo_height { 0 }
+            , custom_fbo_initialized { false }
+            #endif
             , clut_2colors { 0 }
             , clut_4colors { 0 }
             , clut_16colors { 0 }
@@ -278,14 +306,107 @@ class vg_lite_ctx
             }
 
             assert(false);
-            return nullptr;
-        }
+             return nullptr;
+         }
 
-        static vg_lite_ctx * get_instance()
-        {
-            static vg_lite_ctx instance;
-            return &instance;
-        }
+         #if VG_LITE_RENDER_BACKEND == VG_LITE_RENDER_GL
+         /**
+          * Initialize or resize the custom FBO for GL backend
+          * This gives us control over the final blit to the screen
+          */
+         bool init_custom_fbo(uint32_t width, uint32_t height)
+         {
+             // Check if FBO already exists with the same dimensions
+             if (custom_fbo_initialized && 
+                 custom_fbo_width == width && 
+                 custom_fbo_height == height) {
+                 return true;
+             }
+             
+             // Clean up existing FBO if any
+             cleanup_custom_fbo();
+             
+             // Create framebuffer
+             glGenFramebuffers(1, &custom_fbo);
+             glBindFramebuffer(GL_FRAMEBUFFER, custom_fbo);
+             
+             // Create texture for color attachment
+             glGenTextures(1, &custom_fbo_texture);
+             glBindTexture(GL_TEXTURE_2D, custom_fbo_texture);
+             glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
+             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+             glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, custom_fbo_texture, 0);
+             
+             // Note: We skip depth/stencil buffer for 2D color rendering
+             // This simplifies the FBO setup and avoids needing glRenderbufferStorage
+             
+             glBindFramebuffer(GL_FRAMEBUFFER, 0);
+             
+             custom_fbo_width = width;
+             custom_fbo_height = height;
+             custom_fbo_initialized = true;
+             
+             fprintf(stderr, "VG_LITE: Custom FBO created: %ux%u (FBO=%u, Tex=%u)\n", 
+                     width, height, custom_fbo, custom_fbo_texture);
+             
+             return true;
+         }
+         
+         /**
+          * Clean up custom FBO resources
+          */
+         void cleanup_custom_fbo()
+         {
+             if (custom_fbo_texture) {
+                 glDeleteTextures(1, &custom_fbo_texture);
+                 custom_fbo_texture = 0;
+             }
+             if (custom_fbo_depth_stencil) {
+                 glDeleteRenderbuffers(1, &custom_fbo_depth_stencil);
+                 custom_fbo_depth_stencil = 0;
+             }
+             if (custom_fbo) {
+                 glDeleteFramebuffers(1, &custom_fbo);
+                 custom_fbo = 0;
+             }
+             custom_fbo_initialized = false;
+         }
+         
+         /**
+          * Blit custom FBO to default framebuffer (screen)
+          * This ensures correct fullscreen display
+          */
+         void blit_custom_fbo_to_screen()
+         {
+             if (!custom_fbo_initialized) return;
+             
+             GLint current_fbo = 0;
+             glGetIntegerv(GL_FRAMEBUFFER_BINDING, &current_fbo);
+             
+             // Read from custom FBO, write to default framebuffer
+             glBindFramebuffer(GL_READ_FRAMEBUFFER, custom_fbo);
+             glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
+             
+             // Blit to entire screen
+             glBlitFramebuffer(
+                 0, 0, custom_fbo_width, custom_fbo_height,
+                 0, 0, custom_fbo_width, custom_fbo_height,
+                 GL_COLOR_BUFFER_BIT, GL_NEAREST
+             );
+             
+             // Restore previous FBO binding
+             glBindFramebuffer(GL_FRAMEBUFFER, current_fbo);
+         }
+         #endif
+
+         static vg_lite_ctx * get_instance()
+         {
+             static vg_lite_ctx instance;
+             return &instance;
+         }
 
     private:
         /*  */
@@ -991,6 +1112,19 @@ extern "C" {
         }
     }
 
+    static void picture_bgra8888_to_rgba8888(vg_color32_t * dest, const vg_color32_t * src, vg_lite_uint32_t px_size)
+    {
+        while(px_size--) {
+            /* Convert from BGRA (ThorVG output) to RGBA */
+            dest->blue = src->red;
+            dest->green = src->green;
+            dest->red = src->blue;
+            dest->alpha = src->alpha;
+            src++;
+            dest++;
+        }
+    }
+
 
     vg_lite_error_t vg_lite_finish(void)
     {
@@ -1002,6 +1136,11 @@ extern "C" {
 
         TVG_CHECK_RETURN_VG_ERROR(ctx->canvas->sync());
         TVG_CHECK_RETURN_VG_ERROR(ctx->canvas->remove(nullptr));
+        
+        #if VG_LITE_RENDER_BACKEND == VG_LITE_RENDER_GL
+        /* Blit custom FBO to screen after ThorVG renders */
+        ctx->blit_custom_fbo_to_screen();
+        #endif
 
         /* make sure target buffer is valid */
         assert(ctx->target_buffer);
@@ -1056,6 +1195,14 @@ extern "C" {
             case VG_LITE_BGRA8888:
             case VG_LITE_BGRX8888:
                 /* No conversion required. */
+                break;
+            case VG_LITE_RGBA8888:
+            case VG_LITE_RGBX8888:
+                /* Convert from BGRA (ThorVG output) to RGBA */
+                picture_bgra8888_to_rgba8888(
+                    (vg_color32_t *)ctx->target_buffer,
+                    (const vg_color32_t *)ctx->get_temp_target_buffer(),
+                    ctx->target_px_size);
                 break;
             default:
                 fprintf(stderr, "VG_LITE: unsupported format: %d\n", ctx->target_format);
@@ -2818,6 +2965,8 @@ static Result canvas_set_target(vg_lite_ctx * ctx, vg_lite_buffer_t * target)
     ctx->target_buffer = target->memory;
     ctx->target_format = target->format;
     ctx->target_px_size = target->width * target->height;
+    ctx->target_width = target->width;
+    ctx->target_height = target->height;
 
     void * canvas_target_buffer;
     uint32_t stride = 0;
@@ -2843,30 +2992,87 @@ static Result canvas_set_target(vg_lite_ctx * ctx, vg_lite_buffer_t * target)
     }
 
     ctx->tvg_target_buffer = canvas_target_buffer;
+    (void)stride;  /* Calculated but not used in current implementation */
 
 #if VG_LITE_RENDER_BACKEND == VG_LITE_RENDER_GL
-    /* GL backend - uses FBO for rendering
-     * For now, we use FBO 0 (default framebuffer) and rely on external GL context
-     * In production, create an FBO with the target buffer as texture attachment
+    /* GL backend - uses custom FBO for rendering
+     * This gives us control over the final blit to the screen
      * ThorVG v1.0 API: target(display, surface, context, id, w, h, colorspace)
+     * 
+     * IMPORTANT: GlRenderer::target() requires non-null context!
+     * We use wglGetCurrentContext() and wglGetCurrentDC() to get the current context.
      */
     
-    /* Check if there's a valid GL context before proceeding */
     #ifdef _WIN32
-        if (!hasGLContext()) {
-            return Result::InvalidArguments;  /* No GL context available */
+        /* Get current WGL context and DC */
+        HGLRC currentContext = wglGetCurrentContext();
+        HDC currentDC = wglGetCurrentDC();
+        
+        if (!currentContext) {
+            fprintf(stderr, "VG_LITE: No GL context available - call init_opengl() first!\n");
+            return Result::InvalidArguments;
         }
+        
+        /* Initialize custom FBO for controlled rendering */
+        if (!ctx->init_custom_fbo(target->width, target->height)) {
+            fprintf(stderr, "VG_LITE: Failed to create custom FBO\n");
+            return Result::InvalidArguments;
+        }
+        
+        auto gl_canvas = static_cast<GlCanvas*>(ctx->canvas.get());
+        TVG_CHECK_RETURN_RESULT(gl_canvas->target(
+                                    nullptr,            /* display - not used on Windows */
+                                    (void*)currentDC,   /* surface - HDC */
+                                    (void*)currentContext, /* context - HGLRC */
+                                    ctx->custom_fbo,    /* FBO ID - custom FBO */
+                                    target->width,
+                                    target->height,
+                                    tvg::ColorSpace::ABGR8888S));  /* GL_RGBA8 format */
+    #elif defined(__ANDROID__)
+        /* Android: Get current EGL context, display, and surface */
+        EGLContext currentContext = eglGetCurrentContext();
+        EGLDisplay currentDisplay = eglGetCurrentDisplay();
+        EGLSurface currentSurface = eglGetCurrentSurface(EGL_DRAW);
+        
+        if (currentContext == EGL_NO_CONTEXT) {
+            fprintf(stderr, "VG_LITE: No EGL context available - initialize EGL first!\n");
+            return Result::InvalidArguments;
+        }
+        
+        /* Initialize custom FBO for controlled rendering */
+        if (!ctx->init_custom_fbo(target->width, target->height)) {
+            fprintf(stderr, "VG_LITE: Failed to create custom FBO\n");
+            return Result::InvalidArguments;
+        }
+        
+        auto gl_canvas = static_cast<GlCanvas*>(ctx->canvas.get());
+        TVG_CHECK_RETURN_RESULT(gl_canvas->target(
+                                    (void*)currentDisplay,  /* display - EGLDisplay */
+                                    (void*)currentSurface,  /* surface - EGLSurface */
+                                    (void*)currentContext,  /* context - EGLContext */
+                                    ctx->custom_fbo,        /* FBO ID - custom FBO */
+                                    target->width,
+                                    target->height,
+                                    tvg::ColorSpace::ABGR8888S));
+    #else
+        /* Other platforms (Linux, macOS) - placeholder for future implementation */
+        
+        /* Initialize custom FBO for controlled rendering */
+        if (!ctx->init_custom_fbo(target->width, target->height)) {
+            fprintf(stderr, "VG_LITE: Failed to create custom FBO\n");
+            return Result::InvalidArguments;
+        }
+        
+        auto gl_canvas = static_cast<GlCanvas*>(ctx->canvas.get());
+        TVG_CHECK_RETURN_RESULT(gl_canvas->target(
+                                    nullptr,   /* display */
+                                    nullptr,   /* surface */
+                                    nullptr,   /* context */
+                                    ctx->custom_fbo, /* FBO ID - custom FBO */
+                                    target->width,
+                                    target->height,
+                                    tvg::ColorSpace::ABGR8888S));
     #endif
-    
-    auto gl_canvas = static_cast<GlCanvas*>(ctx->canvas.get());
-    TVG_CHECK_RETURN_RESULT(gl_canvas->target(
-                                nullptr,   /* display - use current context */
-                                nullptr,   /* surface - use current context */
-                                nullptr,   /* context - use current context */
-                                0,         /* FBO ID - 0 for default framebuffer */
-                                target->width,
-                                target->height,
-                                tvg::ColorSpace::ABGR8888S));  /* GL_RGBA8 format */
 #else
     /* SW backend - uses memory buffer */
     auto sw_canvas = static_cast<SwCanvas*>(ctx->canvas.get());

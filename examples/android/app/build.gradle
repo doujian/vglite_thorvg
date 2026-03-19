@@ -19,12 +19,19 @@ android {
         cmake {
             path "src/main/cpp/CMakeLists.txt"
             version "3.22.1"
-            arguments "-DANDROID_STL=c++_shared",
-                    "-DANDROID_TOOLCHAIN=clang"
+        }
+    }
+    
+    defaultConfig {
+        externalNativeBuild {
+            cmake {
+                arguments "-DANDROID_STL=c++_shared",
+                        "-DANDROID_TOOLCHAIN=clang"
+            }
         }
     }
 
-    ndkVersion "25.2.9519241"
+    ndkVersion "29.0.14206865"
 }
 
 dependencies {

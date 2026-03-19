@@ -17,6 +17,11 @@
 #include "vg_lite.h"
 #include "test_helpers.h"
 
+// For Android/Linux aligned_alloc support
+#if defined(__ANDROID__) || defined(__linux__)
+#include <cstdlib>
+#endif
+
 using namespace vg_lite_test;
 
 /**
@@ -78,10 +83,13 @@ protected:
         
         // Allocate aligned memory (64-byte alignment as per VG_LITE_BUF_ADDR_ALIGN)
         size_t size = VG_LITE_ALIGN(height * buffer.stride, VG_LITE_BUF_ADDR_ALIGN);
-#ifndef _WIN32
-        buffer.memory = aligned_alloc(VG_LITE_BUF_ADDR_ALIGN, size);
-#else
+#if defined(_WIN32)
         buffer.memory = _aligned_malloc(size, VG_LITE_BUF_ADDR_ALIGN);
+#elif defined(__ANDROID__)
+        // Android requires posix_memalign for aligned allocation
+        posix_memalign(&buffer.memory, VG_LITE_BUF_ADDR_ALIGN, size);
+#else
+        buffer.memory = aligned_alloc(VG_LITE_BUF_ADDR_ALIGN, size);
 #endif
         buffer.address = (vg_lite_uint32_t)(uintptr_t)buffer.memory;
         buffer.handle = buffer.memory;

@@ -110,7 +110,7 @@ if(VG_LITE_USE_GL_BACKEND)
         PRIVATE
             THORVG_SW_RASTER_SUPPORT=1
             THORVG_GL_RASTER_SUPPORT=1
-            THORVG_GL_GLES=1
+            THORVG_GL_TARGET_GL=1    # Use desktop OpenGL (WGL on Windows), not GLES
             THORVG_SVG_LOADER_SUPPORT=1
             THORVG_THREAD_SUPPORT=1
     )

@@ -32,6 +32,7 @@ foreach(EXAMPLE_SOURCE ${WINDOWS_EXAMPLE_SOURCES})
     target_link_libraries(${EXAMPLE_NAME} PRIVATE
         user32      # Win32 user interface
         gdi32       # GDI for simple rendering
+        opengl32    # OpenGL for hardware rendering
     )
     
     message(STATUS "Configured Windows example: ${EXAMPLE_NAME}")
