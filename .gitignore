@@ -2,6 +2,9 @@
 build/
 build_*/
 
+# CTest temporary files
+Testing/
+
 # IDE and editor
 .vs/
 .vscode/
