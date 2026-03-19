@@ -1,0 +1,25 @@
+# Build directories
+build/
+build_*/
+
+# IDE and editor
+.vs/
+.vscode/
+*.user
+*.suo
+*.sln
+*.vcxproj*
+
+# Android
+examples/android/.gradle/
+examples/android/app/.cxx/
+examples/android/app/.gradle/
+examples/android/app/build/
+examples/android/app/.project
+examples/android/app/.settings/
+
+# Temp files
+*.tmp
+*.temp
+*.log
+nul

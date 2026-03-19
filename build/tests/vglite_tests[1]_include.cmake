@@ -1,5 +1,0 @@
-if(EXISTS "D:/Projects/extract_vglite_by_thorvg/build/tests/vglite_tests[1]_tests.cmake")
-  include("D:/Projects/extract_vglite_by_thorvg/build/tests/vglite_tests[1]_tests.cmake")
-else()
-  add_test(vglite_tests_NOT_BUILT vglite_tests_NOT_BUILT)
-endif()

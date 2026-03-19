@@ -34,6 +34,19 @@ android {
     ndkVersion "29.0.14206865"
 }
 
+// Copy APK to unified build directory after assembly
+android.applicationVariants.all { variant ->
+    if (variant.name == 'debug') {
+        def copyTask = tasks.register("copyApkToBuildDir", Copy) {
+            dependsOn variant.packageApplicationProvider
+            from variant.packageApplicationProvider.get().outputDirectory
+            into file('../../../build/android/gl')
+            include '*.apk'
+        }
+        variant.packageApplicationProvider.get().finalizedBy(copyTask)
+    }
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     // Note: The example builds its own native library with VGLite sources included

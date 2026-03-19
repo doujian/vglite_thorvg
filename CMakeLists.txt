@@ -37,9 +37,25 @@ endif()
 # Output directories
 # =============================================================================
 
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+# Determine backend suffix for directory naming
+if(VG_LITE_USE_GL_BACKEND)
+    set(VGLITE_BACKEND_SUFFIX "gl")
+else()
+    set(VGLITE_BACKEND_SUFFIX "sw")
+endif()
+
+# Platform-specific output directory
+if(WIN32)
+    set(VGLITE_OUTPUT_BASE "${CMAKE_SOURCE_DIR}/build/windows/${VGLITE_BACKEND_SUFFIX}")
+elseif(ANDROID)
+    set(VGLITE_OUTPUT_BASE "${CMAKE_SOURCE_DIR}/build/android/${VGLITE_BACKEND_SUFFIX}")
+else()
+    set(VGLITE_OUTPUT_BASE "${CMAKE_BINARY_DIR}")
+endif()
+
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${VGLITE_OUTPUT_BASE}/lib)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${VGLITE_OUTPUT_BASE}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${VGLITE_OUTPUT_BASE}/bin)
 
 # =============================================================================
 # Platform detection
