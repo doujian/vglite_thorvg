@@ -1,0 +1,16 @@
+#ifndef THORVG_CONFIG_H
+#define THORVG_CONFIG_H
+
+#define THORVG_VERSION_STRING "1.0.0"
+
+#cmakedefine TVG_ENGINE_SW
+#ifdef TVG_ENGINE_SW
+#define TVG_SW_RASTER_SUPPORT 1
+#endif
+
+#cmakedefine TVG_THREAD_SUPPORT
+#ifdef TVG_THREAD_SUPPORT
+#define THORVG_THREAD_SUPPORT 1
+#endif
+
+#endif

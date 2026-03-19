@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "D:/Projects/extract_vglite_by_thorvg/build_temp/_deps/googletest-subbuild/CMakeFiles/googletest-populate"
+		},
+		{
+			"file" : "D:/Projects/extract_vglite_by_thorvg/build_temp/_deps/googletest-subbuild/CMakeFiles/7edfae92b68df5ba741b83735332846a/googletest-populate.rule"
+		},
+		{
+			"file" : "D:/Projects/extract_vglite_by_thorvg/build_temp/_deps/googletest-subbuild/CMakeFiles/8b9fedce2716327bd835f41268357c81/googletest-populate-complete.rule"
+		},
+		{
+			"file" : "D:/Projects/extract_vglite_by_thorvg/build_temp/_deps/googletest-subbuild/CMakeFiles/80b6e705a9513b88bf6ef9ff19acda19/googletest-populate-build.rule"
+		},
+		{
+			"file" : "D:/Projects/extract_vglite_by_thorvg/build_temp/_deps/googletest-subbuild/CMakeFiles/80b6e705a9513b88bf6ef9ff19acda19/googletest-populate-configure.rule"
+		},
+		{
+			"file" : "D:/Projects/extract_vglite_by_thorvg/build_temp/_deps/googletest-subbuild/CMakeFiles/80b6e705a9513b88bf6ef9ff19acda19/googletest-populate-download.rule"
+		},
+		{
+			"file" : "D:/Projects/extract_vglite_by_thorvg/build_temp/_deps/googletest-subbuild/CMakeFiles/80b6e705a9513b88bf6ef9ff19acda19/googletest-populate-install.rule"
+		},
+		{
+			"file" : "D:/Projects/extract_vglite_by_thorvg/build_temp/_deps/googletest-subbuild/CMakeFiles/80b6e705a9513b88bf6ef9ff19acda19/googletest-populate-mkdir.rule"
+		},
+		{
+			"file" : "D:/Projects/extract_vglite_by_thorvg/build_temp/_deps/googletest-subbuild/CMakeFiles/80b6e705a9513b88bf6ef9ff19acda19/googletest-populate-patch.rule"
+		},
+		{
+			"file" : "D:/Projects/extract_vglite_by_thorvg/build_temp/_deps/googletest-subbuild/CMakeFiles/80b6e705a9513b88bf6ef9ff19acda19/googletest-populate-test.rule"
+		},
+		{
+			"file" : "D:/Projects/extract_vglite_by_thorvg/build_temp/_deps/googletest-subbuild/CMakeFiles/80b6e705a9513b88bf6ef9ff19acda19/googletest-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"googletest-populate"
+		],
+		"name" : "googletest-populate"
+	}
+}

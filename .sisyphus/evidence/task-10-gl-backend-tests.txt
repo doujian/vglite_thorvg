@@ -1,0 +1,107 @@
+Test project D:/Projects/extract_vglite_by_thorvg/build
+      Start 39: GLBackendTest.UploadBuffer
+ 1/14 Test #39: GLBackendTest.UploadBuffer .........................***Failed    0.01 sec
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = GLBackendTest.UploadBuffer
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from GLBackendTest
+[ RUN      ] GLBackendTest.UploadBuffer
+unknown file: error: SEH exception with code 0xc0000005 thrown in the test body.
+Stack trace:
+
+
+[  FAILED  ] GLBackendTest.UploadBuffer (0 ms)
+[----------] 1 test from GLBackendTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 0 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] GLBackendTest.UploadBuffer
+
+ 1 FAILED TEST
+
+      Start 40: GLBackendTest.MapUnmapRoundtrip
+ 2/14 Test #40: GLBackendTest.MapUnmapRoundtrip ....................   Passed    0.01 sec
+      Start 41: GLBackendTest.FlushMappedBuffer
+ 3/14 Test #41: GLBackendTest.FlushMappedBuffer ....................   Passed    0.01 sec
+      Start 42: GLBackendTest.UploadYUVBuffer
+ 4/14 Test #42: GLBackendTest.UploadYUVBuffer ......................***Failed    0.01 sec
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = GLBackendTest.UploadYUVBuffer
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from GLBackendTest
+[ RUN      ] GLBackendTest.UploadYUVBuffer
+unknown file: error: SEH exception with code 0xc0000005 thrown in the test body.
+Stack trace:
+
+
+[  FAILED  ] GLBackendTest.UploadYUVBuffer (0 ms)
+[----------] 1 test from GLBackendTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 0 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] GLBackendTest.UploadYUVBuffer
+
+ 1 FAILED TEST
+
+      Start 43: GLBackendTest.MapWithDmabuf
+ 5/14 Test #43: GLBackendTest.MapWithDmabuf ........................   Passed    0.01 sec
+      Start 44: GLBackendTest.Integration_CompleteWorkflow
+ 6/14 Test #44: GLBackendTest.Integration_CompleteWorkflow .........***Failed    0.01 sec
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = GLBackendTest.Integration_CompleteWorkflow
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from GLBackendTest
+[ RUN      ] GLBackendTest.Integration_CompleteWorkflow
+unknown file: error: SEH exception with code 0xc0000005 thrown in the test body.
+Stack trace:
+
+
+[  FAILED  ] GLBackendTest.Integration_CompleteWorkflow (0 ms)
+[----------] 1 test from GLBackendTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 0 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] GLBackendTest.Integration_CompleteWorkflow
+
+ 1 FAILED TEST
+
+      Start 45: GLBackendTest.Integration_MapModifyFlushUnmap
+ 7/14 Test #45: GLBackendTest.Integration_MapModifyFlushUnmap ......   Passed    0.01 sec
+      Start 46: GLBackendTest.Error_NullBuffer
+ 8/14 Test #46: GLBackendTest.Error_NullBuffer .....................   Passed    0.01 sec
+      Start 47: GLBackendTest.Error_NullDataPointer
+ 9/14 Test #47: GLBackendTest.Error_NullDataPointer ................   Passed    0.01 sec
+      Start 48: GLBackendTest.Error_MapWithNullMemory
+10/14 Test #48: GLBackendTest.Error_MapWithNullMemory ..............   Passed    0.01 sec
+      Start 49: GLBackendTest.Error_UnmapWithNullMemory
+11/14 Test #49: GLBackendTest.Error_UnmapWithNullMemory ............   Passed    0.01 sec
+      Start 50: GLBackendTest.Error_FlushWithNullMemory
+12/14 Test #50: GLBackendTest.Error_FlushWithNullMemory ............   Passed    0.01 sec
+      Start 51: GLBackendTest.Error_MapDmabufNotSupported
+13/14 Test #51: GLBackendTest.Error_MapDmabufNotSupported ..........   Passed    0.01 sec
+      Start 52: GLBackendTest.Integration_MultipleMapUnmapCycles
+14/14 Test #52: GLBackendTest.Integration_MultipleMapUnmapCycles ...   Passed    0.01 sec
+
+79% tests passed, 3 tests failed out of 14
+
+Total Test time (real) =   0.09 sec
+
+The following tests FAILED:
+	 39 - GLBackendTest.UploadBuffer (Failed)
+	 42 - GLBackendTest.UploadYUVBuffer (Failed)
+	 44 - GLBackendTest.Integration_CompleteWorkflow (Failed)

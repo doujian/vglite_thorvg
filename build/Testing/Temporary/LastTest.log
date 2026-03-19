@@ -1,0 +1,1919 @@
+Start testing: Mar 19 18:42 中国标准时间
+----------------------------------------------------------
+1/65 Testing: CanvasBufferTest.BufferCreate
+1/65 Test: CanvasBufferTest.BufferCreate
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=CanvasBufferTest.BufferCreate" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"CanvasBufferTest.BufferCreate" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = CanvasBufferTest.BufferCreate
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from CanvasBufferTest
+[ RUN      ] CanvasBufferTest.BufferCreate
+[       OK ] CanvasBufferTest.BufferCreate (0 ms)
+[----------] 1 test from CanvasBufferTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"CanvasBufferTest.BufferCreate" end time: Mar 19 18:42 中国标准时间
+"CanvasBufferTest.BufferCreate" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/65 Testing: CanvasBufferTest.BufferStride
+2/65 Test: CanvasBufferTest.BufferStride
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=CanvasBufferTest.BufferStride" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"CanvasBufferTest.BufferStride" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = CanvasBufferTest.BufferStride
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from CanvasBufferTest
+[ RUN      ] CanvasBufferTest.BufferStride
+[       OK ] CanvasBufferTest.BufferStride (1 ms)
+[----------] 1 test from CanvasBufferTest (1 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (1 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"CanvasBufferTest.BufferStride" end time: Mar 19 18:42 中国标准时间
+"CanvasBufferTest.BufferStride" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/65 Testing: CanvasBufferTest.RenderBasic
+3/65 Test: CanvasBufferTest.RenderBasic
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=CanvasBufferTest.RenderBasic" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"CanvasBufferTest.RenderBasic" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = CanvasBufferTest.RenderBasic
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from CanvasBufferTest
+[ RUN      ] CanvasBufferTest.RenderBasic
+[       OK ] CanvasBufferTest.RenderBasic (0 ms)
+[----------] 1 test from CanvasBufferTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"CanvasBufferTest.RenderBasic" end time: Mar 19 18:42 中国标准时间
+"CanvasBufferTest.RenderBasic" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/65 Testing: CanvasBufferTest.BufferMemoryProperties
+4/65 Test: CanvasBufferTest.BufferMemoryProperties
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=CanvasBufferTest.BufferMemoryProperties" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"CanvasBufferTest.BufferMemoryProperties" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = CanvasBufferTest.BufferMemoryProperties
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from CanvasBufferTest
+[ RUN      ] CanvasBufferTest.BufferMemoryProperties
+[       OK ] CanvasBufferTest.BufferMemoryProperties (0 ms)
+[----------] 1 test from CanvasBufferTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"CanvasBufferTest.BufferMemoryProperties" end time: Mar 19 18:42 中国标准时间
+"CanvasBufferTest.BufferMemoryProperties" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/65 Testing: CanvasBufferTest.BufferCopyOperations
+5/65 Test: CanvasBufferTest.BufferCopyOperations
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=CanvasBufferTest.BufferCopyOperations" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"CanvasBufferTest.BufferCopyOperations" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = CanvasBufferTest.BufferCopyOperations
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from CanvasBufferTest
+[ RUN      ] CanvasBufferTest.BufferCopyOperations
+[       OK ] CanvasBufferTest.BufferCopyOperations (0 ms)
+[----------] 1 test from CanvasBufferTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"CanvasBufferTest.BufferCopyOperations" end time: Mar 19 18:42 中国标准时间
+"CanvasBufferTest.BufferCopyOperations" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/65 Testing: CanvasBufferTest.BufferFormatVariations
+6/65 Test: CanvasBufferTest.BufferFormatVariations
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=CanvasBufferTest.BufferFormatVariations" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"CanvasBufferTest.BufferFormatVariations" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = CanvasBufferTest.BufferFormatVariations
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from CanvasBufferTest
+[ RUN      ] CanvasBufferTest.BufferFormatVariations
+[       OK ] CanvasBufferTest.BufferFormatVariations (0 ms)
+[----------] 1 test from CanvasBufferTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"CanvasBufferTest.BufferFormatVariations" end time: Mar 19 18:42 中国标准时间
+"CanvasBufferTest.BufferFormatVariations" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/65 Testing: ColorFormatTest.ARGB8888_BufferCreation
+7/65 Test: ColorFormatTest.ARGB8888_BufferCreation
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=ColorFormatTest.ARGB8888_BufferCreation" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"ColorFormatTest.ARGB8888_BufferCreation" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = ColorFormatTest.ARGB8888_BufferCreation
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ColorFormatTest
+[ RUN      ] ColorFormatTest.ARGB8888_BufferCreation
+[       OK ] ColorFormatTest.ARGB8888_BufferCreation (0 ms)
+[----------] 1 test from ColorFormatTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"ColorFormatTest.ARGB8888_BufferCreation" end time: Mar 19 18:42 中国标准时间
+"ColorFormatTest.ARGB8888_BufferCreation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/65 Testing: ColorFormatTest.ARGB8888_PixelReadWrite
+8/65 Test: ColorFormatTest.ARGB8888_PixelReadWrite
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=ColorFormatTest.ARGB8888_PixelReadWrite" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"ColorFormatTest.ARGB8888_PixelReadWrite" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = ColorFormatTest.ARGB8888_PixelReadWrite
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ColorFormatTest
+[ RUN      ] ColorFormatTest.ARGB8888_PixelReadWrite
+[       OK ] ColorFormatTest.ARGB8888_PixelReadWrite (0 ms)
+[----------] 1 test from ColorFormatTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"ColorFormatTest.ARGB8888_PixelReadWrite" end time: Mar 19 18:42 中国标准时间
+"ColorFormatTest.ARGB8888_PixelReadWrite" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/65 Testing: ColorFormatTest.ARGB8888_FillAndClear
+9/65 Test: ColorFormatTest.ARGB8888_FillAndClear
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=ColorFormatTest.ARGB8888_FillAndClear" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"ColorFormatTest.ARGB8888_FillAndClear" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = ColorFormatTest.ARGB8888_FillAndClear
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ColorFormatTest
+[ RUN      ] ColorFormatTest.ARGB8888_FillAndClear
+[       OK ] ColorFormatTest.ARGB8888_FillAndClear (0 ms)
+[----------] 1 test from ColorFormatTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"ColorFormatTest.ARGB8888_FillAndClear" end time: Mar 19 18:42 中国标准时间
+"ColorFormatTest.ARGB8888_FillAndClear" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/65 Testing: ColorFormatTest.RGB565_BufferCreation
+10/65 Test: ColorFormatTest.RGB565_BufferCreation
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=ColorFormatTest.RGB565_BufferCreation" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"ColorFormatTest.RGB565_BufferCreation" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = ColorFormatTest.RGB565_BufferCreation
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ColorFormatTest
+[ RUN      ] ColorFormatTest.RGB565_BufferCreation
+[       OK ] ColorFormatTest.RGB565_BufferCreation (0 ms)
+[----------] 1 test from ColorFormatTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"ColorFormatTest.RGB565_BufferCreation" end time: Mar 19 18:42 中国标准时间
+"ColorFormatTest.RGB565_BufferCreation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+11/65 Testing: ColorFormatTest.RGB565_PixelReadWrite
+11/65 Test: ColorFormatTest.RGB565_PixelReadWrite
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=ColorFormatTest.RGB565_PixelReadWrite" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"ColorFormatTest.RGB565_PixelReadWrite" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = ColorFormatTest.RGB565_PixelReadWrite
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ColorFormatTest
+[ RUN      ] ColorFormatTest.RGB565_PixelReadWrite
+[       OK ] ColorFormatTest.RGB565_PixelReadWrite (0 ms)
+[----------] 1 test from ColorFormatTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"ColorFormatTest.RGB565_PixelReadWrite" end time: Mar 19 18:42 中国标准时间
+"ColorFormatTest.RGB565_PixelReadWrite" time elapsed: 00:00:00
+----------------------------------------------------------
+
+12/65 Testing: ColorFormatTest.RGB565_StrideCalculation
+12/65 Test: ColorFormatTest.RGB565_StrideCalculation
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=ColorFormatTest.RGB565_StrideCalculation" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"ColorFormatTest.RGB565_StrideCalculation" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = ColorFormatTest.RGB565_StrideCalculation
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ColorFormatTest
+[ RUN      ] ColorFormatTest.RGB565_StrideCalculation
+[       OK ] ColorFormatTest.RGB565_StrideCalculation (0 ms)
+[----------] 1 test from ColorFormatTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"ColorFormatTest.RGB565_StrideCalculation" end time: Mar 19 18:42 中国标准时间
+"ColorFormatTest.RGB565_StrideCalculation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+13/65 Testing: ColorFormatTest.L8_BufferCreation
+13/65 Test: ColorFormatTest.L8_BufferCreation
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=ColorFormatTest.L8_BufferCreation" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"ColorFormatTest.L8_BufferCreation" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = ColorFormatTest.L8_BufferCreation
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ColorFormatTest
+[ RUN      ] ColorFormatTest.L8_BufferCreation
+[       OK ] ColorFormatTest.L8_BufferCreation (0 ms)
+[----------] 1 test from ColorFormatTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"ColorFormatTest.L8_BufferCreation" end time: Mar 19 18:42 中国标准时间
+"ColorFormatTest.L8_BufferCreation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+14/65 Testing: ColorFormatTest.L8_PixelReadWrite
+14/65 Test: ColorFormatTest.L8_PixelReadWrite
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=ColorFormatTest.L8_PixelReadWrite" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"ColorFormatTest.L8_PixelReadWrite" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = ColorFormatTest.L8_PixelReadWrite
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ColorFormatTest
+[ RUN      ] ColorFormatTest.L8_PixelReadWrite
+[       OK ] ColorFormatTest.L8_PixelReadWrite (0 ms)
+[----------] 1 test from ColorFormatTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"ColorFormatTest.L8_PixelReadWrite" end time: Mar 19 18:42 中国标准时间
+"ColorFormatTest.L8_PixelReadWrite" time elapsed: 00:00:00
+----------------------------------------------------------
+
+15/65 Testing: ColorFormatTest.L8_GradientPattern
+15/65 Test: ColorFormatTest.L8_GradientPattern
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=ColorFormatTest.L8_GradientPattern" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"ColorFormatTest.L8_GradientPattern" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = ColorFormatTest.L8_GradientPattern
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ColorFormatTest
+[ RUN      ] ColorFormatTest.L8_GradientPattern
+[       OK ] ColorFormatTest.L8_GradientPattern (0 ms)
+[----------] 1 test from ColorFormatTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"ColorFormatTest.L8_GradientPattern" end time: Mar 19 18:42 中国标准时间
+"ColorFormatTest.L8_GradientPattern" time elapsed: 00:00:00
+----------------------------------------------------------
+
+16/65 Testing: ColorFormatTest.ARGB4444_BufferCreation
+16/65 Test: ColorFormatTest.ARGB4444_BufferCreation
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=ColorFormatTest.ARGB4444_BufferCreation" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"ColorFormatTest.ARGB4444_BufferCreation" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = ColorFormatTest.ARGB4444_BufferCreation
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ColorFormatTest
+[ RUN      ] ColorFormatTest.ARGB4444_BufferCreation
+[       OK ] ColorFormatTest.ARGB4444_BufferCreation (0 ms)
+[----------] 1 test from ColorFormatTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"ColorFormatTest.ARGB4444_BufferCreation" end time: Mar 19 18:42 中国标准时间
+"ColorFormatTest.ARGB4444_BufferCreation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+17/65 Testing: ColorFormatTest.ARGB4444_PixelReadWrite
+17/65 Test: ColorFormatTest.ARGB4444_PixelReadWrite
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=ColorFormatTest.ARGB4444_PixelReadWrite" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"ColorFormatTest.ARGB4444_PixelReadWrite" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = ColorFormatTest.ARGB4444_PixelReadWrite
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ColorFormatTest
+[ RUN      ] ColorFormatTest.ARGB4444_PixelReadWrite
+[       OK ] ColorFormatTest.ARGB4444_PixelReadWrite (0 ms)
+[----------] 1 test from ColorFormatTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"ColorFormatTest.ARGB4444_PixelReadWrite" end time: Mar 19 18:42 中国标准时间
+"ColorFormatTest.ARGB4444_PixelReadWrite" time elapsed: 00:00:00
+----------------------------------------------------------
+
+18/65 Testing: ColorFormatTest.ARGB4444_AlphaBlending
+18/65 Test: ColorFormatTest.ARGB4444_AlphaBlending
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=ColorFormatTest.ARGB4444_AlphaBlending" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"ColorFormatTest.ARGB4444_AlphaBlending" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = ColorFormatTest.ARGB4444_AlphaBlending
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ColorFormatTest
+[ RUN      ] ColorFormatTest.ARGB4444_AlphaBlending
+[       OK ] ColorFormatTest.ARGB4444_AlphaBlending (0 ms)
+[----------] 1 test from ColorFormatTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"ColorFormatTest.ARGB4444_AlphaBlending" end time: Mar 19 18:42 中国标准时间
+"ColorFormatTest.ARGB4444_AlphaBlending" time elapsed: 00:00:00
+----------------------------------------------------------
+
+19/65 Testing: ColorFormatTest.FormatSizes
+19/65 Test: ColorFormatTest.FormatSizes
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=ColorFormatTest.FormatSizes" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"ColorFormatTest.FormatSizes" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = ColorFormatTest.FormatSizes
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ColorFormatTest
+[ RUN      ] ColorFormatTest.FormatSizes
+[       OK ] ColorFormatTest.FormatSizes (0 ms)
+[----------] 1 test from ColorFormatTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"ColorFormatTest.FormatSizes" end time: Mar 19 18:42 中国标准时间
+"ColorFormatTest.FormatSizes" time elapsed: 00:00:00
+----------------------------------------------------------
+
+20/65 Testing: ColorFormatTest.MultipleFormatsCoexist
+20/65 Test: ColorFormatTest.MultipleFormatsCoexist
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=ColorFormatTest.MultipleFormatsCoexist" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"ColorFormatTest.MultipleFormatsCoexist" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = ColorFormatTest.MultipleFormatsCoexist
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ColorFormatTest
+[ RUN      ] ColorFormatTest.MultipleFormatsCoexist
+[       OK ] ColorFormatTest.MultipleFormatsCoexist (0 ms)
+[----------] 1 test from ColorFormatTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"ColorFormatTest.MultipleFormatsCoexist" end time: Mar 19 18:42 中国标准时间
+"ColorFormatTest.MultipleFormatsCoexist" time elapsed: 00:00:00
+----------------------------------------------------------
+
+21/65 Testing: ColorFormatTest.ARGB8888_BoundaryAccess
+21/65 Test: ColorFormatTest.ARGB8888_BoundaryAccess
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=ColorFormatTest.ARGB8888_BoundaryAccess" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"ColorFormatTest.ARGB8888_BoundaryAccess" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = ColorFormatTest.ARGB8888_BoundaryAccess
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ColorFormatTest
+[ RUN      ] ColorFormatTest.ARGB8888_BoundaryAccess
+[       OK ] ColorFormatTest.ARGB8888_BoundaryAccess (0 ms)
+[----------] 1 test from ColorFormatTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"ColorFormatTest.ARGB8888_BoundaryAccess" end time: Mar 19 18:42 中国标准时间
+"ColorFormatTest.ARGB8888_BoundaryAccess" time elapsed: 00:00:00
+----------------------------------------------------------
+
+22/65 Testing: ColorFormatTest.RGB565_BoundaryAccess
+22/65 Test: ColorFormatTest.RGB565_BoundaryAccess
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=ColorFormatTest.RGB565_BoundaryAccess" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"ColorFormatTest.RGB565_BoundaryAccess" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = ColorFormatTest.RGB565_BoundaryAccess
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ColorFormatTest
+[ RUN      ] ColorFormatTest.RGB565_BoundaryAccess
+[       OK ] ColorFormatTest.RGB565_BoundaryAccess (0 ms)
+[----------] 1 test from ColorFormatTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"ColorFormatTest.RGB565_BoundaryAccess" end time: Mar 19 18:42 中国标准时间
+"ColorFormatTest.RGB565_BoundaryAccess" time elapsed: 00:00:00
+----------------------------------------------------------
+
+23/65 Testing: ColorFormatTest.L8_BoundaryAccess
+23/65 Test: ColorFormatTest.L8_BoundaryAccess
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=ColorFormatTest.L8_BoundaryAccess" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"ColorFormatTest.L8_BoundaryAccess" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = ColorFormatTest.L8_BoundaryAccess
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ColorFormatTest
+[ RUN      ] ColorFormatTest.L8_BoundaryAccess
+[       OK ] ColorFormatTest.L8_BoundaryAccess (0 ms)
+[----------] 1 test from ColorFormatTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"ColorFormatTest.L8_BoundaryAccess" end time: Mar 19 18:42 中国标准时间
+"ColorFormatTest.L8_BoundaryAccess" time elapsed: 00:00:00
+----------------------------------------------------------
+
+24/65 Testing: VectorDrawTest.Transform
+24/65 Test: VectorDrawTest.Transform
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=VectorDrawTest.Transform" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"VectorDrawTest.Transform" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = VectorDrawTest.Transform
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from VectorDrawTest
+[ RUN      ] VectorDrawTest.Transform
+[       OK ] VectorDrawTest.Transform (0 ms)
+[----------] 1 test from VectorDrawTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"VectorDrawTest.Transform" end time: Mar 19 18:42 中国标准时间
+"VectorDrawTest.Transform" time elapsed: 00:00:00
+----------------------------------------------------------
+
+25/65 Testing: VectorDrawTest.DrawLines
+25/65 Test: VectorDrawTest.DrawLines
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=VectorDrawTest.DrawLines" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"VectorDrawTest.DrawLines" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = VectorDrawTest.DrawLines
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from VectorDrawTest
+[ RUN      ] VectorDrawTest.DrawLines
+[GOLDEN] Test: vector_draw_lines
+[GOLDEN] Golden: ../tests/ref_imgs/draw/vector_draw_lines.lp64.png
+[GOLDEN] Status: FOUND, 800x480
+[GOLDEN] Result: match=YES, diff=1.04%
+[       OK ] VectorDrawTest.DrawLines (25 ms)
+[----------] 1 test from VectorDrawTest (25 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (25 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"VectorDrawTest.DrawLines" end time: Mar 19 18:42 中国标准时间
+"VectorDrawTest.DrawLines" time elapsed: 00:00:00
+----------------------------------------------------------
+
+26/65 Testing: VectorDrawTest.DrawShapes
+26/65 Test: VectorDrawTest.DrawShapes
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=VectorDrawTest.DrawShapes" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"VectorDrawTest.DrawShapes" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = VectorDrawTest.DrawShapes
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from VectorDrawTest
+[ RUN      ] VectorDrawTest.DrawShapes
+[GOLDEN] Test: vector_draw_shapes
+[GOLDEN] Golden: ../tests/ref_imgs/draw/vector_draw_shapes.lp64.png
+[GOLDEN] Status: FOUND, 800x480
+[GOLDEN] Result: match=YES, diff=3.54%
+[       OK ] VectorDrawTest.DrawShapes (26 ms)
+[----------] 1 test from VectorDrawTest (26 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (26 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"VectorDrawTest.DrawShapes" end time: Mar 19 18:42 中国标准时间
+"VectorDrawTest.DrawShapes" time elapsed: 00:00:00
+----------------------------------------------------------
+
+27/65 Testing: VectorDetailTest.DrawBlendModesComparison
+27/65 Test: VectorDetailTest.DrawBlendModesComparison
+Command: ""
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"VectorDetailTest.DrawBlendModesComparison" start time: 
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"VectorDetailTest.DrawBlendModesComparison" end time: Mar 19 18:42 中国标准时间
+"VectorDetailTest.DrawBlendModesComparison" time elapsed: 00:00:00
+----------------------------------------------------------
+
+28/65 Testing: VectorDetailTest.DrawCopyPath
+28/65 Test: VectorDetailTest.DrawCopyPath
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=VectorDetailTest.DrawCopyPath" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"VectorDetailTest.DrawCopyPath" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = VectorDetailTest.DrawCopyPath
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from VectorDetailTest
+[ RUN      ] VectorDetailTest.DrawCopyPath
+[GOLDEN] Test: vector_draw_copy_path
+[GOLDEN] Golden: ../tests/ref_imgs/draw/vector_draw_copy_path.lp64.png
+[GOLDEN] Status: FOUND, 800x480
+[GOLDEN] Result: match=YES, diff=1.13%
+[       OK ] VectorDetailTest.DrawCopyPath (25 ms)
+[----------] 1 test from VectorDetailTest (25 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (25 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"VectorDetailTest.DrawCopyPath" end time: Mar 19 18:42 中国标准时间
+"VectorDetailTest.DrawCopyPath" time elapsed: 00:00:00
+----------------------------------------------------------
+
+29/65 Testing: VectorDetailTest.DrawRectPath
+29/65 Test: VectorDetailTest.DrawRectPath
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=VectorDetailTest.DrawRectPath" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"VectorDetailTest.DrawRectPath" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = VectorDetailTest.DrawRectPath
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from VectorDetailTest
+[ RUN      ] VectorDetailTest.DrawRectPath
+[GOLDEN] Test: vector_draw_rect_path
+[GOLDEN] Golden: ../tests/ref_imgs/draw/vector_draw_rect_path.lp64.png
+[GOLDEN] Status: FOUND, 800x480
+[GOLDEN] Result: match=YES, diff=0.89%
+[       OK ] VectorDetailTest.DrawRectPath (25 ms)
+[----------] 1 test from VectorDetailTest (25 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (25 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"VectorDetailTest.DrawRectPath" end time: Mar 19 18:42 中国标准时间
+"VectorDetailTest.DrawRectPath" time elapsed: 00:00:00
+----------------------------------------------------------
+
+30/65 Testing: VectorDetailTest.DrawAppendPath
+30/65 Test: VectorDetailTest.DrawAppendPath
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=VectorDetailTest.DrawAppendPath" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"VectorDetailTest.DrawAppendPath" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = VectorDetailTest.DrawAppendPath
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from VectorDetailTest
+[ RUN      ] VectorDetailTest.DrawAppendPath
+[GOLDEN] Test: vector_draw_append_path
+[GOLDEN] Golden: ../tests/ref_imgs/draw/vector_draw_append_path.lp64.png
+[GOLDEN] Status: FOUND, 800x480
+[GOLDEN] Result: match=YES, diff=1.25%
+[       OK ] VectorDetailTest.DrawAppendPath (25 ms)
+[----------] 1 test from VectorDetailTest (25 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (25 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"VectorDetailTest.DrawAppendPath" end time: Mar 19 18:42 中国标准时间
+"VectorDetailTest.DrawAppendPath" time elapsed: 00:00:00
+----------------------------------------------------------
+
+31/65 Testing: VectorDetailTest.DrawArcPath
+31/65 Test: VectorDetailTest.DrawArcPath
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=VectorDetailTest.DrawArcPath" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"VectorDetailTest.DrawArcPath" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = VectorDetailTest.DrawArcPath
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from VectorDetailTest
+[ RUN      ] VectorDetailTest.DrawArcPath
+[GOLDEN] Test: vector_draw_arc_path
+[GOLDEN] Golden: ../tests/ref_imgs/draw/vector_draw_arc_path.lp64.png
+[GOLDEN] Status: FOUND, 800x480
+[GOLDEN] Result: match=YES, diff=0.61%
+[       OK ] VectorDetailTest.DrawArcPath (26 ms)
+[----------] 1 test from VectorDetailTest (26 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (26 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"VectorDetailTest.DrawArcPath" end time: Mar 19 18:42 中国标准时间
+"VectorDetailTest.DrawArcPath" time elapsed: 00:00:00
+----------------------------------------------------------
+
+32/65 Testing: DumpBufferTest.BasicDumpToPng
+32/65 Test: DumpBufferTest.BasicDumpToPng
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=DumpBufferTest.BasicDumpToPng" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"DumpBufferTest.BasicDumpToPng" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = DumpBufferTest.BasicDumpToPng
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DumpBufferTest
+[ RUN      ] DumpBufferTest.BasicDumpToPng
+[       OK ] DumpBufferTest.BasicDumpToPng (1 ms)
+[----------] 1 test from DumpBufferTest (1 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (1 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"DumpBufferTest.BasicDumpToPng" end time: Mar 19 18:42 中国标准时间
+"DumpBufferTest.BasicDumpToPng" time elapsed: 00:00:00
+----------------------------------------------------------
+
+33/65 Testing: DumpBufferTest.DifferentSizes
+33/65 Test: DumpBufferTest.DifferentSizes
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=DumpBufferTest.DifferentSizes" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"DumpBufferTest.DifferentSizes" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = DumpBufferTest.DifferentSizes
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DumpBufferTest
+[ RUN      ] DumpBufferTest.DifferentSizes
+[       OK ] DumpBufferTest.DifferentSizes (12 ms)
+[----------] 1 test from DumpBufferTest (12 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (12 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"DumpBufferTest.DifferentSizes" end time: Mar 19 18:42 中国标准时间
+"DumpBufferTest.DifferentSizes" time elapsed: 00:00:00
+----------------------------------------------------------
+
+34/65 Testing: DumpBufferTest.Rgb565Format
+34/65 Test: DumpBufferTest.Rgb565Format
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=DumpBufferTest.Rgb565Format" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"DumpBufferTest.Rgb565Format" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = DumpBufferTest.Rgb565Format
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DumpBufferTest
+[ RUN      ] DumpBufferTest.Rgb565Format
+[       OK ] DumpBufferTest.Rgb565Format (1 ms)
+[----------] 1 test from DumpBufferTest (1 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (1 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"DumpBufferTest.Rgb565Format" end time: Mar 19 18:42 中国标准时间
+"DumpBufferTest.Rgb565Format" time elapsed: 00:00:00
+----------------------------------------------------------
+
+35/65 Testing: DumpBufferTest.L8Format
+35/65 Test: DumpBufferTest.L8Format
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=DumpBufferTest.L8Format" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"DumpBufferTest.L8Format" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = DumpBufferTest.L8Format
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DumpBufferTest
+[ RUN      ] DumpBufferTest.L8Format
+[       OK ] DumpBufferTest.L8Format (1 ms)
+[----------] 1 test from DumpBufferTest (1 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (1 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"DumpBufferTest.L8Format" end time: Mar 19 18:42 中国标准时间
+"DumpBufferTest.L8Format" time elapsed: 00:00:00
+----------------------------------------------------------
+
+36/65 Testing: DumpBufferTest.NullBufferError
+36/65 Test: DumpBufferTest.NullBufferError
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=DumpBufferTest.NullBufferError" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"DumpBufferTest.NullBufferError" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = DumpBufferTest.NullBufferError
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DumpBufferTest
+[ RUN      ] DumpBufferTest.NullBufferError
+[       OK ] DumpBufferTest.NullBufferError (0 ms)
+[----------] 1 test from DumpBufferTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"DumpBufferTest.NullBufferError" end time: Mar 19 18:42 中国标准时间
+"DumpBufferTest.NullBufferError" time elapsed: 00:00:00
+----------------------------------------------------------
+
+37/65 Testing: DumpBufferTest.NullFilenameError
+37/65 Test: DumpBufferTest.NullFilenameError
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=DumpBufferTest.NullFilenameError" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"DumpBufferTest.NullFilenameError" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = DumpBufferTest.NullFilenameError
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DumpBufferTest
+[ RUN      ] DumpBufferTest.NullFilenameError
+[       OK ] DumpBufferTest.NullFilenameError (0 ms)
+[----------] 1 test from DumpBufferTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"DumpBufferTest.NullFilenameError" end time: Mar 19 18:42 中国标准时间
+"DumpBufferTest.NullFilenameError" time elapsed: 00:00:00
+----------------------------------------------------------
+
+38/65 Testing: DumpBufferTest.MultipleDumps
+38/65 Test: DumpBufferTest.MultipleDumps
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=DumpBufferTest.MultipleDumps" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"DumpBufferTest.MultipleDumps" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = DumpBufferTest.MultipleDumps
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DumpBufferTest
+[ RUN      ] DumpBufferTest.MultipleDumps
+[       OK ] DumpBufferTest.MultipleDumps (3 ms)
+[----------] 1 test from DumpBufferTest (3 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (3 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"DumpBufferTest.MultipleDumps" end time: Mar 19 18:42 中国标准时间
+"DumpBufferTest.MultipleDumps" time elapsed: 00:00:00
+----------------------------------------------------------
+
+39/65 Testing: GLBackendTest.UploadBuffer
+39/65 Test: GLBackendTest.UploadBuffer
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=GLBackendTest.UploadBuffer" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"GLBackendTest.UploadBuffer" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = GLBackendTest.UploadBuffer
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from GLBackendTest
+[ RUN      ] GLBackendTest.UploadBuffer
+[       OK ] GLBackendTest.UploadBuffer (0 ms)
+[----------] 1 test from GLBackendTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"GLBackendTest.UploadBuffer" end time: Mar 19 18:42 中国标准时间
+"GLBackendTest.UploadBuffer" time elapsed: 00:00:00
+----------------------------------------------------------
+
+40/65 Testing: GLBackendTest.MapUnmapRoundtrip
+40/65 Test: GLBackendTest.MapUnmapRoundtrip
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=GLBackendTest.MapUnmapRoundtrip" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"GLBackendTest.MapUnmapRoundtrip" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = GLBackendTest.MapUnmapRoundtrip
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from GLBackendTest
+[ RUN      ] GLBackendTest.MapUnmapRoundtrip
+[       OK ] GLBackendTest.MapUnmapRoundtrip (0 ms)
+[----------] 1 test from GLBackendTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"GLBackendTest.MapUnmapRoundtrip" end time: Mar 19 18:42 中国标准时间
+"GLBackendTest.MapUnmapRoundtrip" time elapsed: 00:00:00
+----------------------------------------------------------
+
+41/65 Testing: GLBackendTest.FlushMappedBuffer
+41/65 Test: GLBackendTest.FlushMappedBuffer
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=GLBackendTest.FlushMappedBuffer" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"GLBackendTest.FlushMappedBuffer" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = GLBackendTest.FlushMappedBuffer
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from GLBackendTest
+[ RUN      ] GLBackendTest.FlushMappedBuffer
+[       OK ] GLBackendTest.FlushMappedBuffer (0 ms)
+[----------] 1 test from GLBackendTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"GLBackendTest.FlushMappedBuffer" end time: Mar 19 18:42 中国标准时间
+"GLBackendTest.FlushMappedBuffer" time elapsed: 00:00:00
+----------------------------------------------------------
+
+42/65 Testing: GLBackendTest.UploadYUVBuffer
+42/65 Test: GLBackendTest.UploadYUVBuffer
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=GLBackendTest.UploadYUVBuffer" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"GLBackendTest.UploadYUVBuffer" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = GLBackendTest.UploadYUVBuffer
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from GLBackendTest
+[ RUN      ] GLBackendTest.UploadYUVBuffer
+[       OK ] GLBackendTest.UploadYUVBuffer (0 ms)
+[----------] 1 test from GLBackendTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"GLBackendTest.UploadYUVBuffer" end time: Mar 19 18:42 中国标准时间
+"GLBackendTest.UploadYUVBuffer" time elapsed: 00:00:00
+----------------------------------------------------------
+
+43/65 Testing: GLBackendTest.MapWithDmabuf
+43/65 Test: GLBackendTest.MapWithDmabuf
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=GLBackendTest.MapWithDmabuf" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"GLBackendTest.MapWithDmabuf" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = GLBackendTest.MapWithDmabuf
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from GLBackendTest
+[ RUN      ] GLBackendTest.MapWithDmabuf
+[       OK ] GLBackendTest.MapWithDmabuf (0 ms)
+[----------] 1 test from GLBackendTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"GLBackendTest.MapWithDmabuf" end time: Mar 19 18:42 中国标准时间
+"GLBackendTest.MapWithDmabuf" time elapsed: 00:00:00
+----------------------------------------------------------
+
+44/65 Testing: GLBackendTest.Integration_CompleteWorkflow
+44/65 Test: GLBackendTest.Integration_CompleteWorkflow
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=GLBackendTest.Integration_CompleteWorkflow" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"GLBackendTest.Integration_CompleteWorkflow" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = GLBackendTest.Integration_CompleteWorkflow
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from GLBackendTest
+[ RUN      ] GLBackendTest.Integration_CompleteWorkflow
+D:\Projects\extract_vglite_by_thorvg\tests\test_gl_backend.cpp(420): Skipped
+vg_lite_upload_buffer requires GL context
+
+[  SKIPPED ] GLBackendTest.Integration_CompleteWorkflow (0 ms)
+[----------] 1 test from GLBackendTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 0 tests.
+[  SKIPPED ] 1 test, listed below:
+[  SKIPPED ] GLBackendTest.Integration_CompleteWorkflow
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Pass Reason:
+Skip regular expression found in output. Regex=[\[  SKIPPED \]]
+"GLBackendTest.Integration_CompleteWorkflow" end time: Mar 19 18:42 中国标准时间
+"GLBackendTest.Integration_CompleteWorkflow" time elapsed: 00:00:00
+----------------------------------------------------------
+
+45/65 Testing: GLBackendTest.Integration_MapModifyFlushUnmap
+45/65 Test: GLBackendTest.Integration_MapModifyFlushUnmap
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=GLBackendTest.Integration_MapModifyFlushUnmap" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"GLBackendTest.Integration_MapModifyFlushUnmap" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = GLBackendTest.Integration_MapModifyFlushUnmap
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from GLBackendTest
+[ RUN      ] GLBackendTest.Integration_MapModifyFlushUnmap
+[       OK ] GLBackendTest.Integration_MapModifyFlushUnmap (0 ms)
+[----------] 1 test from GLBackendTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"GLBackendTest.Integration_MapModifyFlushUnmap" end time: Mar 19 18:42 中国标准时间
+"GLBackendTest.Integration_MapModifyFlushUnmap" time elapsed: 00:00:00
+----------------------------------------------------------
+
+46/65 Testing: GLBackendTest.Error_NullBuffer
+46/65 Test: GLBackendTest.Error_NullBuffer
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=GLBackendTest.Error_NullBuffer" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"GLBackendTest.Error_NullBuffer" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = GLBackendTest.Error_NullBuffer
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from GLBackendTest
+[ RUN      ] GLBackendTest.Error_NullBuffer
+[       OK ] GLBackendTest.Error_NullBuffer (0 ms)
+[----------] 1 test from GLBackendTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"GLBackendTest.Error_NullBuffer" end time: Mar 19 18:42 中国标准时间
+"GLBackendTest.Error_NullBuffer" time elapsed: 00:00:00
+----------------------------------------------------------
+
+47/65 Testing: GLBackendTest.Error_NullDataPointer
+47/65 Test: GLBackendTest.Error_NullDataPointer
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=GLBackendTest.Error_NullDataPointer" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"GLBackendTest.Error_NullDataPointer" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = GLBackendTest.Error_NullDataPointer
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from GLBackendTest
+[ RUN      ] GLBackendTest.Error_NullDataPointer
+[       OK ] GLBackendTest.Error_NullDataPointer (0 ms)
+[----------] 1 test from GLBackendTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"GLBackendTest.Error_NullDataPointer" end time: Mar 19 18:42 中国标准时间
+"GLBackendTest.Error_NullDataPointer" time elapsed: 00:00:00
+----------------------------------------------------------
+
+48/65 Testing: GLBackendTest.Error_MapWithNullMemory
+48/65 Test: GLBackendTest.Error_MapWithNullMemory
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=GLBackendTest.Error_MapWithNullMemory" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"GLBackendTest.Error_MapWithNullMemory" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = GLBackendTest.Error_MapWithNullMemory
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from GLBackendTest
+[ RUN      ] GLBackendTest.Error_MapWithNullMemory
+[       OK ] GLBackendTest.Error_MapWithNullMemory (0 ms)
+[----------] 1 test from GLBackendTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"GLBackendTest.Error_MapWithNullMemory" end time: Mar 19 18:42 中国标准时间
+"GLBackendTest.Error_MapWithNullMemory" time elapsed: 00:00:00
+----------------------------------------------------------
+
+49/65 Testing: GLBackendTest.Error_UnmapWithNullMemory
+49/65 Test: GLBackendTest.Error_UnmapWithNullMemory
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=GLBackendTest.Error_UnmapWithNullMemory" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"GLBackendTest.Error_UnmapWithNullMemory" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = GLBackendTest.Error_UnmapWithNullMemory
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from GLBackendTest
+[ RUN      ] GLBackendTest.Error_UnmapWithNullMemory
+[       OK ] GLBackendTest.Error_UnmapWithNullMemory (0 ms)
+[----------] 1 test from GLBackendTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"GLBackendTest.Error_UnmapWithNullMemory" end time: Mar 19 18:42 中国标准时间
+"GLBackendTest.Error_UnmapWithNullMemory" time elapsed: 00:00:00
+----------------------------------------------------------
+
+50/65 Testing: GLBackendTest.Error_FlushWithNullMemory
+50/65 Test: GLBackendTest.Error_FlushWithNullMemory
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=GLBackendTest.Error_FlushWithNullMemory" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"GLBackendTest.Error_FlushWithNullMemory" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = GLBackendTest.Error_FlushWithNullMemory
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from GLBackendTest
+[ RUN      ] GLBackendTest.Error_FlushWithNullMemory
+[       OK ] GLBackendTest.Error_FlushWithNullMemory (0 ms)
+[----------] 1 test from GLBackendTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"GLBackendTest.Error_FlushWithNullMemory" end time: Mar 19 18:42 中国标准时间
+"GLBackendTest.Error_FlushWithNullMemory" time elapsed: 00:00:00
+----------------------------------------------------------
+
+51/65 Testing: GLBackendTest.Error_MapDmabufNotSupported
+51/65 Test: GLBackendTest.Error_MapDmabufNotSupported
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=GLBackendTest.Error_MapDmabufNotSupported" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"GLBackendTest.Error_MapDmabufNotSupported" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = GLBackendTest.Error_MapDmabufNotSupported
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from GLBackendTest
+[ RUN      ] GLBackendTest.Error_MapDmabufNotSupported
+[       OK ] GLBackendTest.Error_MapDmabufNotSupported (0 ms)
+[----------] 1 test from GLBackendTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"GLBackendTest.Error_MapDmabufNotSupported" end time: Mar 19 18:42 中国标准时间
+"GLBackendTest.Error_MapDmabufNotSupported" time elapsed: 00:00:00
+----------------------------------------------------------
+
+52/65 Testing: GLBackendTest.Integration_MultipleMapUnmapCycles
+52/65 Test: GLBackendTest.Integration_MultipleMapUnmapCycles
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=GLBackendTest.Integration_MultipleMapUnmapCycles" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"GLBackendTest.Integration_MultipleMapUnmapCycles" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = GLBackendTest.Integration_MultipleMapUnmapCycles
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from GLBackendTest
+[ RUN      ] GLBackendTest.Integration_MultipleMapUnmapCycles
+[       OK ] GLBackendTest.Integration_MultipleMapUnmapCycles (0 ms)
+[----------] 1 test from GLBackendTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"GLBackendTest.Integration_MultipleMapUnmapCycles" end time: Mar 19 18:42 中国标准时间
+"GLBackendTest.Integration_MultipleMapUnmapCycles" time elapsed: 00:00:00
+----------------------------------------------------------
+
+53/65 Testing: GoldenImageTest.VectorDrawShapes
+53/65 Test: GoldenImageTest.VectorDrawShapes
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=GoldenImageTest.VectorDrawShapes" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"GoldenImageTest.VectorDrawShapes" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = GoldenImageTest.VectorDrawShapes
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from GoldenImageTest
+[ RUN      ] GoldenImageTest.VectorDrawShapes
+[DEBUG] Golden path: ../tests/ref_imgs/draw/vector_draw_shapes.lp64.png
+[DEBUG] Golden loaded: YES (size: 800x480)
+[DEBUG] Compare result: match=YES, diff=3.54%, mismatches=60800
+[       OK ] GoldenImageTest.VectorDrawShapes (26 ms)
+[----------] 1 test from GoldenImageTest (26 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (26 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"GoldenImageTest.VectorDrawShapes" end time: Mar 19 18:42 中国标准时间
+"GoldenImageTest.VectorDrawShapes" time elapsed: 00:00:00
+----------------------------------------------------------
+
+54/65 Testing: GoldenImageTest.BlendModesComparison
+54/65 Test: GoldenImageTest.BlendModesComparison
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=GoldenImageTest.BlendModesComparison" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"GoldenImageTest.BlendModesComparison" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = GoldenImageTest.BlendModesComparison
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from GoldenImageTest
+[ RUN      ] GoldenImageTest.BlendModesComparison
+[       OK ] GoldenImageTest.BlendModesComparison (25 ms)
+[----------] 1 test from GoldenImageTest (25 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (25 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"GoldenImageTest.BlendModesComparison" end time: Mar 19 18:42 中国标准时间
+"GoldenImageTest.BlendModesComparison" time elapsed: 00:00:00
+----------------------------------------------------------
+
+55/65 Testing: GoldenImageTest.FillRulesComparison
+55/65 Test: GoldenImageTest.FillRulesComparison
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=GoldenImageTest.FillRulesComparison" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"GoldenImageTest.FillRulesComparison" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = GoldenImageTest.FillRulesComparison
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from GoldenImageTest
+[ RUN      ] GoldenImageTest.FillRulesComparison
+[       OK ] GoldenImageTest.FillRulesComparison (20 ms)
+[----------] 1 test from GoldenImageTest (20 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (20 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"GoldenImageTest.FillRulesComparison" end time: Mar 19 18:42 中国标准时间
+"GoldenImageTest.FillRulesComparison" time elapsed: 00:00:00
+----------------------------------------------------------
+
+56/65 Testing: GoldenImageTest.MatrixTransformComparison
+56/65 Test: GoldenImageTest.MatrixTransformComparison
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=GoldenImageTest.MatrixTransformComparison" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"GoldenImageTest.MatrixTransformComparison" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = GoldenImageTest.MatrixTransformComparison
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from GoldenImageTest
+[ RUN      ] GoldenImageTest.MatrixTransformComparison
+[       OK ] GoldenImageTest.MatrixTransformComparison (20 ms)
+[----------] 1 test from GoldenImageTest (20 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (20 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"GoldenImageTest.MatrixTransformComparison" end time: Mar 19 18:42 中国标准时间
+"GoldenImageTest.MatrixTransformComparison" time elapsed: 00:00:00
+----------------------------------------------------------
+
+57/65 Testing: VGLiteTest.InitClose
+57/65 Test: VGLiteTest.InitClose
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=VGLiteTest.InitClose" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"VGLiteTest.InitClose" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = VGLiteTest.InitClose
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from VGLiteTest
+[ RUN      ] VGLiteTest.InitClose
+[       OK ] VGLiteTest.InitClose (0 ms)
+[----------] 1 test from VGLiteTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"VGLiteTest.InitClose" end time: Mar 19 18:42 中国标准时间
+"VGLiteTest.InitClose" time elapsed: 00:00:00
+----------------------------------------------------------
+
+58/65 Testing: VGLiteTest.MatrixIdentity
+58/65 Test: VGLiteTest.MatrixIdentity
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=VGLiteTest.MatrixIdentity" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"VGLiteTest.MatrixIdentity" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = VGLiteTest.MatrixIdentity
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from VGLiteTest
+[ RUN      ] VGLiteTest.MatrixIdentity
+[       OK ] VGLiteTest.MatrixIdentity (0 ms)
+[----------] 1 test from VGLiteTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"VGLiteTest.MatrixIdentity" end time: Mar 19 18:42 中国标准时间
+"VGLiteTest.MatrixIdentity" time elapsed: 00:00:00
+----------------------------------------------------------
+
+59/65 Testing: VGLiteTest.MatrixTranslate
+59/65 Test: VGLiteTest.MatrixTranslate
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=VGLiteTest.MatrixTranslate" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"VGLiteTest.MatrixTranslate" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = VGLiteTest.MatrixTranslate
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from VGLiteTest
+[ RUN      ] VGLiteTest.MatrixTranslate
+[       OK ] VGLiteTest.MatrixTranslate (0 ms)
+[----------] 1 test from VGLiteTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"VGLiteTest.MatrixTranslate" end time: Mar 19 18:42 中国标准时间
+"VGLiteTest.MatrixTranslate" time elapsed: 00:00:00
+----------------------------------------------------------
+
+60/65 Testing: VGLiteTest.MatrixScale
+60/65 Test: VGLiteTest.MatrixScale
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=VGLiteTest.MatrixScale" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"VGLiteTest.MatrixScale" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = VGLiteTest.MatrixScale
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from VGLiteTest
+[ RUN      ] VGLiteTest.MatrixScale
+[       OK ] VGLiteTest.MatrixScale (0 ms)
+[----------] 1 test from VGLiteTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"VGLiteTest.MatrixScale" end time: Mar 19 18:42 中国标准时间
+"VGLiteTest.MatrixScale" time elapsed: 00:00:00
+----------------------------------------------------------
+
+61/65 Testing: VGLiteTest.MatrixRotate
+61/65 Test: VGLiteTest.MatrixRotate
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=VGLiteTest.MatrixRotate" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"VGLiteTest.MatrixRotate" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = VGLiteTest.MatrixRotate
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from VGLiteTest
+[ RUN      ] VGLiteTest.MatrixRotate
+[       OK ] VGLiteTest.MatrixRotate (0 ms)
+[----------] 1 test from VGLiteTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"VGLiteTest.MatrixRotate" end time: Mar 19 18:42 中国标准时间
+"VGLiteTest.MatrixRotate" time elapsed: 00:00:00
+----------------------------------------------------------
+
+62/65 Testing: SvgRenderTest.RenderTiger
+62/65 Test: SvgRenderTest.RenderTiger
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=SvgRenderTest.RenderTiger" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"SvgRenderTest.RenderTiger" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = SvgRenderTest.RenderTiger
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SvgRenderTest
+[ RUN      ] SvgRenderTest.RenderTiger
+[TEST] Loading tiger.svg from: ../tests/assets/svg/tiger.svg
+[TEST] tiger.svg loaded successfully (68630 bytes)
+[TEST] tiger.svg validated successfully
+[       OK ] SvgRenderTest.RenderTiger (0 ms)
+[----------] 1 test from SvgRenderTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"SvgRenderTest.RenderTiger" end time: Mar 19 18:42 中国标准时间
+"SvgRenderTest.RenderTiger" time elapsed: 00:00:00
+----------------------------------------------------------
+
+63/65 Testing: SvgRenderTest.RenderLinearGradient
+63/65 Test: SvgRenderTest.RenderLinearGradient
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=SvgRenderTest.RenderLinearGradient" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"SvgRenderTest.RenderLinearGradient" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = SvgRenderTest.RenderLinearGradient
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SvgRenderTest
+[ RUN      ] SvgRenderTest.RenderLinearGradient
+[TEST] Loading linear_gradient_general_attributes.svg from: ../tests/assets/svg/linear_gradient_general_attributes.svg
+[TEST] linear_gradient_general_attributes.svg loaded successfully (4840 bytes)
+[TEST] linear_gradient_general_attributes.svg validated successfully
+[       OK ] SvgRenderTest.RenderLinearGradient (0 ms)
+[----------] 1 test from SvgRenderTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"SvgRenderTest.RenderLinearGradient" end time: Mar 19 18:42 中国标准时间
+"SvgRenderTest.RenderLinearGradient" time elapsed: 00:00:00
+----------------------------------------------------------
+
+64/65 Testing: SvgRenderTest.RenderRadialGradient
+64/65 Test: SvgRenderTest.RenderRadialGradient
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=SvgRenderTest.RenderRadialGradient" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"SvgRenderTest.RenderRadialGradient" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = SvgRenderTest.RenderRadialGradient
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SvgRenderTest
+[ RUN      ] SvgRenderTest.RenderRadialGradient
+[TEST] Loading radial_gradient_general_attributes.svg from: ../tests/assets/svg/radial_gradient_general_attributes.svg
+[TEST] radial_gradient_general_attributes.svg loaded successfully (3095 bytes)
+[TEST] radial_gradient_general_attributes.svg validated successfully
+[       OK ] SvgRenderTest.RenderRadialGradient (0 ms)
+[----------] 1 test from SvgRenderTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"SvgRenderTest.RenderRadialGradient" end time: Mar 19 18:42 中国标准时间
+"SvgRenderTest.RenderRadialGradient" time elapsed: 00:00:00
+----------------------------------------------------------
+
+65/65 Testing: SvgRenderTest.VerifySvgAssetsExist
+65/65 Test: SvgRenderTest.VerifySvgAssetsExist
+Command: "D:/Projects/extract_vglite_by_thorvg/build/bin/Release/vglite_tests.exe" "--gtest_filter=SvgRenderTest.VerifySvgAssetsExist" "--gtest_also_run_disabled_tests"
+Directory: D:/Projects/extract_vglite_by_thorvg/build/tests
+"SvgRenderTest.VerifySvgAssetsExist" start time: Mar 19 18:42 中国标准时间
+Output:
+----------------------------------------------------------
+Test configuration:
+  dump_enabled: false
+  output_dir: .
+Note: Google Test filter = SvgRenderTest.VerifySvgAssetsExist
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SvgRenderTest
+[ RUN      ] SvgRenderTest.VerifySvgAssetsExist
+[TEST] Found: ../tests/assets/svg/tiger.svg
+[TEST] Found: ../tests/assets/svg/linear_gradient_general_attributes.svg
+[TEST] Found: ../tests/assets/svg/radial_gradient_general_attributes.svg
+[       OK ] SvgRenderTest.VerifySvgAssetsExist (0 ms)
+[----------] 1 test from SvgRenderTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"SvgRenderTest.VerifySvgAssetsExist" end time: Mar 19 18:42 中国标准时间
+"SvgRenderTest.VerifySvgAssetsExist" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Mar 19 18:42 中国标准时间

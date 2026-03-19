@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Solution>
+	<Configurations>
+		<BuildType Name="Debug"/>
+		<BuildType Name="Release"/>
+		<BuildType Name="MinSizeRel"/>
+		<BuildType Name="RelWithDebInfo"/>
+		<Platform Name="x64"/>
+	</Configurations>
+	<Project Path="ALL_BUILD.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="49e09844-459a-307f-b800-636ea1e804ec" DefaultStartup="true">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="googletest/googlemock/gmock.vcxproj"/>
+		<BuildDependency Project="googletest/googlemock/gmock_main.vcxproj"/>
+		<BuildDependency Project="googletest/googletest/gtest.vcxproj"/>
+		<BuildDependency Project="googletest/googletest/gtest_main.vcxproj"/>
+		<BuildDependency Project="examples/hello_path.vcxproj"/>
+		<BuildDependency Project="examples/windows/hello_window.vcxproj"/>
+		<BuildDependency Project="third_party/thorvg.vcxproj"/>
+		<BuildDependency Project="vglite_render.vcxproj"/>
+		<BuildDependency Project="tests/vglite_tests.vcxproj"/>
+	</Project>
+	<Project Path="INSTALL.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="5ebaa4c9-ee9d-39ba-8104-0c1b28ab2554">
+		<BuildDependency Project="ALL_BUILD.vcxproj"/>
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<Build Solution="Debug|*" Project="false"/>
+		<Build Solution="Release|*" Project="false"/>
+		<Build Solution="MinSizeRel|*" Project="false"/>
+		<Build Solution="RelWithDebInfo|*" Project="false"/>
+	</Project>
+	<Project Path="RUN_TESTS.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="6c4f1eab-8b33-3b56-9f9b-297b13eb4446">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<Build Solution="Debug|*" Project="false"/>
+		<Build Solution="Release|*" Project="false"/>
+		<Build Solution="MinSizeRel|*" Project="false"/>
+		<Build Solution="RelWithDebInfo|*" Project="false"/>
+	</Project>
+	<Project Path="ZERO_CHECK.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="22a37943-ee06-3ab2-aade-b5d6287fc3f1"/>
+	<Project Path="googletest/googlemock/gmock.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="405e4aae-c54c-3c5d-b936-66153e168fc0">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="googletest/googlemock/gmock_main.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="797b2774-99d9-3f51-8137-0ab57bd3e3bd">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="googletest/googletest/gtest.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="1bfa7650-ebb7-38e1-9de0-25766291ce2e">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="googletest/googletest/gtest_main.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="4c5d4fe3-47d0-37a4-ab73-ce3f5daf0c02">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="googletest/googletest/gtest.vcxproj"/>
+	</Project>
+	<Project Path="examples/hello_path.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="e6f26500-3a67-3d04-97be-195694d9d647">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="third_party/thorvg.vcxproj"/>
+		<BuildDependency Project="vglite_render.vcxproj"/>
+	</Project>
+	<Project Path="examples/windows/hello_window.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="3cfbad28-1b66-3b5a-a346-def8756adf5b">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="third_party/thorvg.vcxproj"/>
+		<BuildDependency Project="vglite_render.vcxproj"/>
+	</Project>
+	<Project Path="third_party/thorvg.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="390382f9-cef2-3bca-8e24-4ac792a35db0">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="vglite_render.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="259e66e2-670b-3db2-8abf-90040471858d">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="third_party/thorvg.vcxproj"/>
+	</Project>
+	<Project Path="tests/vglite_tests.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="b1cf1670-a213-31bd-98a6-183880c32f13">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="googletest/googletest/gtest.vcxproj"/>
+		<BuildDependency Project="third_party/thorvg.vcxproj"/>
+		<BuildDependency Project="vglite_render.vcxproj"/>
+	</Project>
+</Solution>

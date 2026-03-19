@@ -1,0 +1,64 @@
+# Task: Create Win32 fullscreen window example
+
+## Files Created
+1. examples/windows/hello_window.c - Win32 fullscreen window with VGLite SW backend
+2. examples/windows/CMakeLists.txt - Build configuration for Windows examples
+
+## Files Modified
+1. examples/CMakeLists.txt - Added subdirectory for windows examples
+2. CMakeLists.txt - Added C language to enable .c file compilation
+
+## Verification Steps
+
+### 1. CMake Configuration
+```
+$ cd build && cmake .. -DVGLITE_BUILD_TESTS=OFF -DVG_LITE_USE_GL_BACKEND=OFF
+-- Selecting Windows SDK version 10.0.26100.0 to target Windows 10.0.22621.
+-- Using ThorVG Software backend
+-- Configuring for SW backend with ThorVG v1.0
+-- Configured Windows example: hello_window
+-- Windows examples configured: D:/Projects/extract_vglite_by_thorvg/examples/windows/hello_window.c
+-- Configuring done (0.0s)
+-- Generating done (0.2s)
+-- Build files have been written to: D:\Projects\extract_vglite_by_thorvg\build
+```
+
+### 2. Build Command
+```
+$ cmake --build build --target hello_window --config Release
+  hello_window.c
+  stb_impl.cpp
+  hello_window.vcxproj -> D:\Projects\extract_vglite_by_thorvg\build\bin\Release\hello_window.exe
+```
+
+### 3. Executable Verification
+```
+$ ls -la build/bin/Release/hello_window.exe
+-rwxr-xr-x 1 HUAWEI 197121 175104 Mar 19 14:55 build/bin/Release/hello_window.exe
+
+$ file build/bin/Release/hello_window.exe
+build/bin/Release/hello_window.exe: PE32+ executable for MS Windows 6.00 (GUI), x86-64, 6 sections
+```
+
+## Features Implemented
+- [x] Win32 fullscreen window using CreateWindowEx with WS_POPUP style
+- [x] Query primary monitor resolution at runtime using GetSystemMetrics(SM_CXSCREEN/SM_CYSCREEN)
+- [x] Handle WM_CLOSE for window close button
+- [x] Handle WM_KEYDOWN for ESC key to exit
+- [x] Handle WM_PAINT for rendering
+- [x] Initialize VGLite with SW backend (vg_lite_init, vg_lite_allocate)
+- [x] Clear buffer to solid color (vg_lite_clear, vg_lite_finish)
+- [x] Proper cleanup (vg_lite_free, vg_lite_close)
+- [x] CMakeLists.txt builds the example successfully
+
+## Known Limitations
+- The example uses GDI for screen rendering (simple color fill) since SW backend 
+  renders to a CPU buffer that requires manual blitting to screen
+- Full VGLite rendering would require copying buffer->memory to screen via 
+  GDI BitBlt or DirectX
+
+## Build Configuration
+- Backend: SW (VG_LITE_RENDER_BACKEND=1)
+- Platform: Windows (VGLITE_PLATFORM_WINDOWS)
+- Compiler: MSVC v145
+- Architecture: x64

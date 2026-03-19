@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"D:/Projects/extract_vglite_by_thorvg/build_android/cmake_install.cmake",
+		"D:/Projects/extract_vglite_by_thorvg/build_android/third_party/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

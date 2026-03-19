@@ -1,0 +1,131 @@
+================================================================================
+TEST BASELINE VERIFICATION - Task 01
+================================================================================
+Date: 2026-03-19
+Command: ctest --test-dir build -C Release --output-on-failure
+================================================================================
+
+TEST RESULTS SUMMARY
+--------------------
+Total Tests:    44
+Passed:         43
+Failed:         0
+Disabled:       1
+
+Test Pass Rate: 100% (43/43 runnable tests passed)
+
+================================================================================
+DISABLED TEST DETAILS
+================================================================================
+Test #27: VectorDetailTest.DrawBlendModesComparison
+Status: ***Not Run (Disabled)
+Reason: This test is disabled via DISABLED_ prefix in test definition
+        (test_draw_vector_detail.cpp:95 - DISABLED_DrawBlendModesComparison)
+
+================================================================================
+FULL TEST OUTPUT
+================================================================================
+Test project D:/Projects/extract_vglite_by_thorvg/build
+      Start  1: CanvasBufferTest.BufferCreate
+ 1/44 Test  #1: CanvasBufferTest.BufferCreate ...............   Passed    3.36 sec
+      Start  2: CanvasBufferTest.BufferStride
+ 2/44 Test  #2: CanvasBufferTest.BufferStride ...............   Passed    0.01 sec
+      Start  3: CanvasBufferTest.RenderBasic
+ 3/44 Test  #3: CanvasBufferTest.RenderBasic ................   Passed    0.01 sec
+      Start  4: CanvasBufferTest.BufferMemoryProperties
+ 4/44 Test  #4: CanvasBufferTest.BufferMemoryProperties .....   Passed    0.01 sec
+      Start  5: CanvasBufferTest.BufferCopyOperations
+ 5/44 Test  #5: CanvasBufferTest.BufferCopyOperations .......   Passed    0.01 sec
+      Start  6: CanvasBufferTest.BufferFormatVariations
+ 6/44 Test  #6: CanvasBufferTest.BufferFormatVariations .....   Passed    0.01 sec
+      Start  7: ColorFormatTest.ARGB8888_BufferCreation
+ 7/44 Test  #7: ColorFormatTest.ARGB8888_BufferCreation .....   Passed    0.01 sec
+      Start  8: ColorFormatTest.ARGB8888_PixelReadWrite
+ 8/44 Test  #8: ColorFormatTest.ARGB8888_PixelReadWrite .....   Passed    0.01 sec
+      Start  9: ColorFormatTest.ARGB8888_FillAndClear
+ 9/44 Test  #9: ColorFormatTest.ARGB8888_FillAndClear .......   Passed    0.01 sec
+      Start 10: ColorFormatTest.RGB565_BufferCreation
+10/44 Test #10: ColorFormatTest.RGB565_BufferCreation .......   Passed    0.01 sec
+      Start 11: ColorFormatTest.RGB565_PixelReadWrite
+11/44 Test #11: ColorFormatTest.RGB565_PixelReadWrite .......   Passed    0.01 sec
+      Start 12: ColorFormatTest.RGB565_StrideCalculation
+12/44 Test #12: ColorFormatTest.RGB565_StrideCalculation ....   Passed    0.01 sec
+      Start 13: ColorFormatTest.L8_BufferCreation
+13/44 Test #13: ColorFormatTest.L8_BufferCreation ...........   Passed    0.01 sec
+      Start 14: ColorFormatTest.L8_PixelReadWrite
+14/44 Test #14: ColorFormatTest.L8_PixelReadWrite ...........   Passed    0.01 sec
+      Start 15: ColorFormatTest.L8_GradientPattern
+15/44 Test #15: ColorFormatTest.L8_GradientPattern ..........   Passed    0.01 sec
+      Start 16: ColorFormatTest.ARGB4444_BufferCreation
+16/44 Test #16: ColorFormatTest.ARGB4444_BufferCreation .....   Passed    0.01 sec
+      Start 17: ColorFormatTest.ARGB4444_PixelReadWrite
+17/44 Test #17: ColorFormatTest.ARGB4444_PixelReadWrite .....   Passed    0.01 sec
+      Start 18: ColorFormatTest.ARGB4444_AlphaBlending
+18/44 Test #18: ColorFormatTest.ARGB4444_AlphaBlending ......   Passed    0.01 sec
+      Start 19: ColorFormatTest.FormatSizes
+19/44 Test #19: ColorFormatTest.FormatSizes .................   Passed    0.01 sec
+      Start 20: ColorFormatTest.MultipleFormatsCoexist
+20/44 Test #20: ColorFormatTest.MultipleFormatsCoexist ......   Passed    0.01 sec
+      Start 21: ColorFormatTest.ARGB8888_BoundaryAccess
+21/44 Test #21: ColorFormatTest.ARGB8888_BoundaryAccess .....   Passed    0.01 sec
+      Start 22: ColorFormatTest.RGB565_BoundaryAccess
+22/44 Test #22: ColorFormatTest.RGB565_BoundaryAccess .......   Passed    0.01 sec
+      Start 23: ColorFormatTest.L8_BoundaryAccess
+23/44 Test #23: ColorFormatTest.L8_BoundaryAccess ...........   Passed    0.01 sec
+      Start 24: VectorDrawTest.Transform
+24/44 Test #24: VectorDrawTest.Transform ....................   Passed    0.01 sec
+      Start 25: VectorDrawTest.DrawLines
+25/44 Test #25: VectorDrawTest.DrawLines ....................   Passed    0.10 sec
+      Start 26: VectorDrawTest.DrawShapes
+26/44 Test #26: VectorDrawTest.DrawShapes ...................   Passed    0.11 sec
+      Start 27: VectorDetailTest.DrawBlendModesComparison
+27/44 Test #27: VectorDetailTest.DrawBlendModesComparison ...***Not Run (Disabled)   0.00 sec
+      Start 28: VectorDetailTest.DrawCopyPath
+28/44 Test #28: VectorDetailTest.DrawCopyPath ...............   Passed    0.11 sec
+      Start 29: VectorDetailTest.DrawRectPath
+29/44 Test #29: VectorDetailTest.DrawRectPath ...............   Passed    0.10 sec
+      Start 30: VectorDetailTest.DrawAppendPath
+30/44 Test #30: VectorDetailTest.DrawAppendPath .............   Passed    0.11 sec
+      Start 31: VectorDetailTest.DrawArcPath
+31/44 Test #31: VectorDetailTest.DrawArcPath ................   Passed    0.10 sec
+      Start 32: GoldenImageTest.VectorDrawShapes
+32/44 Test #32: GoldenImageTest.VectorDrawShapes ............   Passed    0.11 sec
+      Start 33: GoldenImageTest.BlendModesComparison
+33/44 Test #33: GoldenImageTest.BlendModesComparison ........   Passed    0.10 sec
+      Start 34: GoldenImageTest.FillRulesComparison
+34/44 Test #34: GoldenImageTest.FillRulesComparison .........   Passed    0.06 sec
+      Start 35: GoldenImageTest.MatrixTransformComparison
+35/44 Test #35: GoldenImageTest.MatrixTransformComparison ...   Passed    0.07 sec
+      Start 36: VGLiteTest.InitClose
+36/44 Test #36: VGLiteTest.InitClose ........................   Passed    0.01 sec
+      Start 37: VGLiteTest.MatrixIdentity
+37/44 Test #37: VGLiteTest.MatrixIdentity ...................   Passed    0.01 sec
+      Start 38: VGLiteTest.MatrixTranslate
+38/44 Test #38: VGLiteTest.MatrixTranslate ...................   Passed    0.01 sec
+      Start 39: VGLiteTest.MatrixScale
+39/44 Test #39: VGLiteTest.MatrixScale ......................   Passed    0.01 sec
+      Start 40: VGLiteTest.MatrixRotate
+40/44 Test #40: VGLiteTest.MatrixRotate ......................   Passed    0.01 sec
+      Start 41: SvgRenderTest.RenderTiger
+41/44 Test #41: SvgRenderTest.RenderTiger ...................   Passed    0.01 sec
+      Start 42: SvgRenderTest.RenderLinearGradient
+42/44 Test #42: SvgRenderTest.RenderLinearGradient ..........   Passed    0.01 sec
+      Start 43: SvgRenderTest.RenderRadialGradient
+43/44 Test #43: SvgRenderTest.RenderRadialGradient ..........   Passed    0.01 sec
+      Start 44: SvgRenderTest.VerifySvgAssetsExist
+44/44 Test #44: SvgRenderTest.VerifySvgAssetsExist ..........   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 43
+
+Total Test time (real) =   4.70 sec
+
+The following tests did not run:
+	 27 - VectorDetailTest.DrawBlendModesComparison (Disabled)
+
+================================================================================
+VERIFICATION COMPLETE
+================================================================================
+Status: SUCCESS
+- Test output saved to: .sisyphus/evidence/task-01-test-baseline.txt
+- Test count: 43 pass, 1 disabled
+- Disabled test: VectorDetailTest.DrawBlendModesComparison

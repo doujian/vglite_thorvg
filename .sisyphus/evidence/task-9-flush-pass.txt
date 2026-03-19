@@ -1,0 +1,53 @@
+# Task 9: vg_lite_flush_mapped_buffer Implementation
+
+## Test Result
+```
+Test project D:/Projects/extract_vglite_by_thorvg/build
+    Start 41: GLBackendTest.FlushMappedBuffer
+1/1 Test #41: GLBackendTest.FlushMappedBuffer ...   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.01 sec
+```
+
+## Implementation Details
+
+### Function Signature
+```cpp
+vg_lite_error_t vg_lite_flush_mapped_buffer(vg_lite_buffer_t * buffer);
+```
+
+### Implementation Location
+- File: `src/vg_lite_tvg.cpp`
+- Lines: ~716-745
+
+### Key Implementation Notes
+
+1. **ThorVG Architecture**: ThorVG's GlCanvas manages GPU resources internally and handles CPU-GPU synchronization during `canvas->sync()` (called in `vg_lite_finish()`).
+
+2. **No Direct GL Calls**: ThorVG's minimal GL interface doesn't expose `glMemoryBarrier()` or `glFlushMappedBufferRange()`. The implementation returns `VG_LITE_SUCCESS` for both backends since ThorVG handles synchronization internally.
+
+3. **Backend-Specific Logic**:
+   - GL Backend: Returns `VG_LITE_SUCCESS` - ThorVG handles GPU sync during `sync()`
+   - SW Backend: Returns `VG_LITE_SUCCESS` - No GPU sync needed, data is in CPU memory
+
+4. **Parameter Validation**: The function validates that `buffer != nullptr` and returns `VG_LITE_INVALID_ARGUMENT` for null buffers.
+
+### Build Configuration
+To test GL backend:
+```bash
+cmake -DVG_LITE_USE_GL_BACKEND=ON ..
+cmake --build . --config Debug
+ctest -R FlushMapped --output-on-failure
+```
+
+## Related Tests
+- `GLBackendTest.UploadBuffer` - Failed (Task 6 - SEH exception from GL functions)
+- `GLBackendTest.MapUnmapRoundtrip` - Passed
+- `GLBackendTest.FlushMappedBuffer` - Passed ✓
+- `GLBackendTest.UploadYUVBuffer` - Failed (Task 6 - SEH exception)
+- `GLBackendTest.MapWithDmabuf` - Passed
+
+## Date
+2026-03-19

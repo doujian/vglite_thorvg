@@ -1,0 +1,10 @@
+^D:\PROJECTS\EXTRACT_VGLITE_BY_THORVG\EXAMPLES\CMAKELISTS.TXT
+setlocal
+C:\Users\HUAWEI\AppData\Roaming\Python\Python312\site-packages\cmake\data\bin\cmake.exe -SD:/Projects/extract_vglite_by_thorvg -BD:/Projects/extract_vglite_by_thorvg/build --check-stamp-file D:/Projects/extract_vglite_by_thorvg/build/examples/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

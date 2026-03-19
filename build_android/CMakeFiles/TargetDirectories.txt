@@ -1,0 +1,14 @@
+D:/Projects/extract_vglite_by_thorvg/build_android/CMakeFiles/vglite_render.dir
+D:/Projects/extract_vglite_by_thorvg/build_android/CMakeFiles/edit_cache.dir
+D:/Projects/extract_vglite_by_thorvg/build_android/CMakeFiles/rebuild_cache.dir
+D:/Projects/extract_vglite_by_thorvg/build_android/CMakeFiles/list_install_components.dir
+D:/Projects/extract_vglite_by_thorvg/build_android/CMakeFiles/install.dir
+D:/Projects/extract_vglite_by_thorvg/build_android/CMakeFiles/install/local.dir
+D:/Projects/extract_vglite_by_thorvg/build_android/CMakeFiles/install/strip.dir
+D:/Projects/extract_vglite_by_thorvg/build_android/third_party/CMakeFiles/thorvg.dir
+D:/Projects/extract_vglite_by_thorvg/build_android/third_party/CMakeFiles/edit_cache.dir
+D:/Projects/extract_vglite_by_thorvg/build_android/third_party/CMakeFiles/rebuild_cache.dir
+D:/Projects/extract_vglite_by_thorvg/build_android/third_party/CMakeFiles/list_install_components.dir
+D:/Projects/extract_vglite_by_thorvg/build_android/third_party/CMakeFiles/install.dir
+D:/Projects/extract_vglite_by_thorvg/build_android/third_party/CMakeFiles/install/local.dir
+D:/Projects/extract_vglite_by_thorvg/build_android/third_party/CMakeFiles/install/strip.dir

@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\common\tvgColor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\common\tvgCompressor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\common\tvgMath.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\common\tvgStr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\renderer\tvgAccessor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\renderer\tvgAnimation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\renderer\tvgCanvas.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\renderer\tvgFill.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\renderer\tvgInitializer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\renderer\tvgLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\renderer\tvgPaint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\renderer\tvgPicture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\renderer\tvgRender.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\renderer\tvgSaver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\renderer\tvgScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\renderer\tvgShape.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\renderer\tvgTaskScheduler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\renderer\tvgText.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\renderer\sw_engine\tvgSwFill.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\renderer\sw_engine\tvgSwImage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\renderer\sw_engine\tvgSwMath.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\renderer\sw_engine\tvgSwMemPool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\renderer\sw_engine\tvgSwPostEffect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\renderer\sw_engine\tvgSwRaster.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\renderer\sw_engine\tvgSwRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\renderer\sw_engine\tvgSwRle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\renderer\sw_engine\tvgSwShape.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\renderer\sw_engine\tvgSwStroke.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\loaders\svg\tvgSvgCssStyle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\loaders\svg\tvgSvgLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\loaders\svg\tvgSvgPath.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\loaders\svg\tvgSvgSceneBuilder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\loaders\svg\tvgSvgUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\loaders\svg\tvgXmlParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\extract_vglite_by_thorvg\third_party\thorvg\src\loaders\raw\tvgRawLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Projects\extract_vglite_by_thorvg\third_party\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{5ABCE178-8B33-3C82-8D1A-3F0C4F357A22}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,38 @@
+plugins {
+    id 'com.android.application' version '8.2.0'
+}
+
+android {
+    namespace 'com.example.vglite'
+    compileSdkVersion 34
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 34
+    }
+
+    buildFeatures {
+        // prefab not needed - we build native code directly via CMake
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "src/main/cpp/CMakeLists.txt"
+            version "3.22.1"
+            arguments "-DANDROID_STL=c++_shared",
+                    "-DANDROID_TOOLCHAIN=clang"
+        }
+    }
+
+    ndkVersion "25.2.9519241"
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // Note: The example builds its own native library with VGLite sources included
+    // No external vglite module dependency needed
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestUtil 'androidx.test:runner:1.5.2'
+}

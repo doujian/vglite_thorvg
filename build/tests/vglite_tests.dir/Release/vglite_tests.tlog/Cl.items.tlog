@@ -1,0 +1,10 @@
+D:\Projects\extract_vglite_by_thorvg\tests\stb_impl.cpp;D:\Projects\extract_vglite_by_thorvg\build\tests\vglite_tests.dir\Release\stb_impl.obj
+D:\Projects\extract_vglite_by_thorvg\tests\test_canvas_buffer.cpp;D:\Projects\extract_vglite_by_thorvg\build\tests\vglite_tests.dir\Release\test_canvas_buffer.obj
+D:\Projects\extract_vglite_by_thorvg\tests\test_color_formats.cpp;D:\Projects\extract_vglite_by_thorvg\build\tests\vglite_tests.dir\Release\test_color_formats.obj
+D:\Projects\extract_vglite_by_thorvg\tests\test_draw_vector.cpp;D:\Projects\extract_vglite_by_thorvg\build\tests\vglite_tests.dir\Release\test_draw_vector.obj
+D:\Projects\extract_vglite_by_thorvg\tests\test_draw_vector_detail.cpp;D:\Projects\extract_vglite_by_thorvg\build\tests\vglite_tests.dir\Release\test_draw_vector_detail.obj
+D:\Projects\extract_vglite_by_thorvg\tests\test_dump_buffer.cpp;D:\Projects\extract_vglite_by_thorvg\build\tests\vglite_tests.dir\Release\test_dump_buffer.obj
+D:\Projects\extract_vglite_by_thorvg\tests\test_gl_backend.cpp;D:\Projects\extract_vglite_by_thorvg\build\tests\vglite_tests.dir\Release\test_gl_backend.obj
+D:\Projects\extract_vglite_by_thorvg\tests\test_golden.cpp;D:\Projects\extract_vglite_by_thorvg\build\tests\vglite_tests.dir\Release\test_golden.obj
+D:\Projects\extract_vglite_by_thorvg\tests\test_main.cpp;D:\Projects\extract_vglite_by_thorvg\build\tests\vglite_tests.dir\Release\test_main.obj
+D:\Projects\extract_vglite_by_thorvg\tests\test_svg_render.cpp;D:\Projects\extract_vglite_by_thorvg\build\tests\vglite_tests.dir\Release\test_svg_render.obj

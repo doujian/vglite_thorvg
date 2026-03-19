@@ -1,0 +1,16 @@
+# CMake generation dependency list for this directory.
+C:/Users/HUAWEI/AppData/Roaming/Python/Python312/site-packages/cmake/data/share/cmake-4.2/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in
+C:/Users/HUAWEI/AppData/Roaming/Python/Python312/site-packages/cmake/data/share/cmake-4.2/Modules/CMakePackageConfigHelpers.cmake
+C:/Users/HUAWEI/AppData/Roaming/Python/Python312/site-packages/cmake/data/share/cmake-4.2/Modules/CheckCSourceCompiles.cmake
+C:/Users/HUAWEI/AppData/Roaming/Python/Python312/site-packages/cmake/data/share/cmake-4.2/Modules/CheckIncludeFile.cmake
+C:/Users/HUAWEI/AppData/Roaming/Python/Python312/site-packages/cmake/data/share/cmake-4.2/Modules/CheckLibraryExists.cmake
+C:/Users/HUAWEI/AppData/Roaming/Python/Python312/site-packages/cmake/data/share/cmake-4.2/Modules/FindPackageHandleStandardArgs.cmake
+C:/Users/HUAWEI/AppData/Roaming/Python/Python312/site-packages/cmake/data/share/cmake-4.2/Modules/FindPackageMessage.cmake
+C:/Users/HUAWEI/AppData/Roaming/Python/Python312/site-packages/cmake/data/share/cmake-4.2/Modules/FindThreads.cmake
+C:/Users/HUAWEI/AppData/Roaming/Python/Python312/site-packages/cmake/data/share/cmake-4.2/Modules/Internal/CheckSourceCompiles.cmake
+C:/Users/HUAWEI/AppData/Roaming/Python/Python312/site-packages/cmake/data/share/cmake-4.2/Modules/WriteBasicConfigVersionFile.cmake
+D:/Projects/extract_vglite_by_thorvg/third_party/googletest/googletest/CMakeLists.txt
+D:/Projects/extract_vglite_by_thorvg/third_party/googletest/googletest/cmake/Config.cmake.in
+D:/Projects/extract_vglite_by_thorvg/third_party/googletest/googletest/cmake/gtest.pc.in
+D:/Projects/extract_vglite_by_thorvg/third_party/googletest/googletest/cmake/gtest_main.pc.in
+D:/Projects/extract_vglite_by_thorvg/third_party/googletest/googletest/cmake/internal_utils.cmake

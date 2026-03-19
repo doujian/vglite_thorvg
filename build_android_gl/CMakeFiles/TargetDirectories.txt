@@ -1,0 +1,3 @@
+D:/Projects/extract_vglite_by_thorvg/build_android_gl/CMakeFiles/vglite_android.dir
+D:/Projects/extract_vglite_by_thorvg/build_android_gl/CMakeFiles/edit_cache.dir
+D:/Projects/extract_vglite_by_thorvg/build_android_gl/CMakeFiles/rebuild_cache.dir
