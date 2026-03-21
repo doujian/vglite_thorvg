@@ -692,6 +692,20 @@ static vg_lite_converter<vg_color32_t, vg_color32_t> conv_bgra8888_to_bgra8888(
     memcpy(dest, src, sizeof(vg_color32_t) * px_size);
 });
 
+static vg_lite_converter<vg_color32_t, vg_color32_t> conv_rgba8888_to_bgra8888(
+    [](vg_color32_t * dest, const vg_color32_t * src, vg_lite_uint32_t px_size, vg_lite_uint32_t /* color */)
+{
+    /* RGBA to BGRA: swap R and B channels */
+    while(px_size--) {
+        dest->blue = src->red;
+        dest->green = src->green;
+        dest->red = src->blue;
+        dest->alpha = src->alpha;
+        src++;
+        dest++;
+    }
+});
+
 /**********************
  *      MACROS
  **********************/
@@ -3298,6 +3312,12 @@ static Result picture_load(vg_lite_ctx * ctx, Picture * picture, const vg_lite_b
             case VG_LITE_BGRA8888: {
                     /* For stride conversion */
                     conv_bgra8888_to_bgra8888.convert(&target, source);
+                }
+                break;
+
+            case VG_LITE_RGBA8888: {
+                    /* RGBA to BGRA conversion */
+                    conv_rgba8888_to_bgra8888.convert(&target, source);
                 }
                 break;
 
