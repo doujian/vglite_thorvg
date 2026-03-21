@@ -884,38 +884,44 @@ inline bool compare_with_golden(vg_lite_buffer_t* buf, const std::string& golden
                                  double tolerance = 0.05) {
     if (!buf || !buf->memory) return false;
     
-    // Determine the full path based on golden_path content
-    std::string full;
-    
-    if (golden_path.find("../ref_imgs_vg_lite/") == 0) {
-        // Path starts with ../ref_imgs_vg_lite/ - remove the ../ since we're in tests directory
-        full = golden_path.substr(3);  // Skip "../"
-    } else if (golden_path.find("ref_imgs_vg_lite/") == 0) {
-        // Path starts with ref_imgs_vg_lite/ - use directly
-        full = golden_path;
-    } else {
-        // Default to ref_imgs directory
-        full = "ref_imgs/" + golden_path;
+    // Extract relative path (remove any ../ prefix)
+    std::string rel_path = golden_path;
+    if (rel_path.find("../") == 0) {
+        rel_path = rel_path.substr(3);  // Skip "../"
     }
     
-    Image golden = loadImage(full);
+    // Build search paths - try multiple locations
+    std::vector<std::string> search_paths;
+    std::string exe_dir = get_exe_directory();
+    
+    // From build/windows/sw/bin/Release/ -> ../../tests/
+    search_paths.push_back(exe_dir + "../../tests/" + rel_path);
+    search_paths.push_back(exe_dir + "../tests/" + rel_path);
+    // Current directory
+    search_paths.push_back(rel_path);
+    search_paths.push_back("tests/" + rel_path);
+    search_paths.push_back("../../tests/" + rel_path);
+    
+    Image golden;
+    for (const auto& path : search_paths) {
+        golden = loadImage(path);
+        if (golden.valid()) break;
+    }
     
     // If path doesn't already have extension, try variants
     if (!golden.valid() && golden_path.find(".png") == std::string::npos) {
-        // Try .lp64.png first (64-bit systems)
-        std::string variant = full + ".lp64.png";
-        golden = loadImage(variant);
-        
-        // Try .lp32.png (32-bit systems)
-        if (!golden.valid()) {
-            variant = full + ".lp32.png";
-            golden = loadImage(variant);
-        }
-        
-        // Try plain .png
-        if (!golden.valid()) {
-            variant = full + ".png";
-            golden = loadImage(variant);
+        for (const auto& base_path : search_paths) {
+            // Try .lp64.png first (64-bit systems)
+            golden = loadImage(base_path + ".lp64.png");
+            if (golden.valid()) break;
+            
+            // Try .lp32.png (32-bit systems)
+            golden = loadImage(base_path + ".lp32.png");
+            if (golden.valid()) break;
+            
+            // Try plain .png
+            golden = loadImage(base_path + ".png");
+            if (golden.valid()) break;
         }
     }
     
@@ -936,49 +942,52 @@ inline std::string get_comparison_message(vg_lite_buffer_t* buf, const std::stri
                                            double tolerance = 0.05) {
     if (!buf || !buf->memory) return "Invalid buffer";
     
-    // Determine the full path based on golden_path content
-    std::string full;
-    
-    if (golden_path.find("../ref_imgs_vg_lite/") == 0) {
-        // Path starts with ../ref_imgs_vg_lite/ - remove the ../ since we're in tests directory
-        full = golden_path.substr(3);  // Skip "../"
-    } else if (golden_path.find("ref_imgs_vg_lite/") == 0) {
-        // Path starts with ref_imgs_vg_lite/ - use directly
-        full = golden_path;
-    } else {
-        // Default to ref_imgs directory
-        full = "ref_imgs/" + golden_path;
+    // Extract relative path (remove any ../ prefix)
+    std::string rel_path = golden_path;
+    if (rel_path.find("../") == 0) {
+        rel_path = rel_path.substr(3);  // Skip "../"
     }
     
-    // Debug: print the path we're trying to load
-    printf("DEBUG: Attempting to load golden image: %s\n", full.c_str());
+    // Build search paths - try multiple locations
+    std::vector<std::string> search_paths;
+    std::string exe_dir = get_exe_directory();
     
-    Image golden = loadImage(full);
+    // From build/windows/sw/bin/Release/ -> ../../tests/
+    search_paths.push_back(exe_dir + "../../tests/" + rel_path);
+    search_paths.push_back(exe_dir + "../tests/" + rel_path);
+    // Current directory
+    search_paths.push_back(rel_path);
+    search_paths.push_back("tests/" + rel_path);
+    search_paths.push_back("../../tests/" + rel_path);
     
-    // Debug: check if image loaded
-    printf("DEBUG: Image loaded: %s (size: %dx%d)\n", 
-           golden.valid() ? "YES" : "NO",
-           golden.valid() ? golden.width : 0,
-           golden.valid() ? golden.height : 0);
+    Image golden;
+    std::string loaded_path;
+    for (const auto& path : search_paths) {
+        golden = loadImage(path);
+        if (golden.valid()) {
+            loaded_path = path;
+            break;
+        }
+    }
     
     // If path doesn't already have extension, try variants
     if (!golden.valid() && golden_path.find(".png") == std::string::npos) {
-        // Try .lp64.png first (64-bit systems)
-        std::string variant = full + ".lp64.png";
-        golden = loadImage(variant);
-        
-        if (!golden.valid()) {
-            variant = full + ".lp32.png";
-            golden = loadImage(variant);
-        }
-        
-        if (!golden.valid()) {
-            variant = full + ".png";
-            golden = loadImage(variant);
+        for (const auto& base_path : search_paths) {
+            // Try .lp64.png first (64-bit systems)
+            golden = loadImage(base_path + ".lp64.png");
+            if (golden.valid()) { loaded_path = base_path + ".lp64.png"; break; }
+            
+            // Try .lp32.png (32-bit systems)
+            golden = loadImage(base_path + ".lp32.png");
+            if (golden.valid()) { loaded_path = base_path + ".lp32.png"; break; }
+            
+            // Try plain .png
+            golden = loadImage(base_path + ".png");
+            if (golden.valid()) { loaded_path = base_path + ".png"; break; }
         }
     }
     
-    if (!golden.valid()) return "Failed to load golden: " + full;
+    if (!golden.valid()) return "Failed to load golden: " + rel_path;
     
     Image actual = bufferToImage((const uint8_t*)buf->memory, buf->width, buf->height, 
                                   buf->format, buf->stride);
