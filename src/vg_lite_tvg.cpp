@@ -2810,9 +2810,10 @@ static float vlc_get_arg(const void * data, vg_lite_format_t format)
         case VG_LITE_FP32:
             return *((float *)data);
 
-        default:
-            fprintf(stderr, "VG_LITE: UNKNOWN_FORMAT: %d\n", format);
-            break;
+            default:
+                fprintf(stderr, "VG_LITE: unsupported format: %d\n", source->format);
+                assert(false);
+                break;
     }
 
     return 0;

@@ -777,6 +777,40 @@ void render_scene_image_normal_1(vg_lite_buffer_t* buffer, uint8_t opa) {
         }
     }
     
+    // Flush all pending operations before freeing source buffer
+    vg_lite_finish();
+    
+    free_buffer(src_logo);
+}
+    
+    // Calculate opacity factor (0-1)
+    float alpha_factor = opa / 255.0f;
+    uint8_t effective_alpha = (opa > 127) ? 255 : (uint8_t)(opa * alpha_factor);
+    
+    // Light purple/lavender background (matching LVGL render demo)
+    fill_buffer(buffer, make_color(255, 230, 220, 240));
+    
+    // Grid layout similar to LVGL's image_normal_1 scene
+    // 4 rows x 9 columns of logos
+    int start_x = 10;
+    int start_y = 10;
+    int spacing_x = 52;
+    int spacing_y = 58;
+    
+    for (int row = 0; row < 4; row++) {
+        for (int col = 0; col < 9; col++) {
+            float x = start_x + col * spacing_x;
+            float y = start_y + row * spacing_y;
+            
+            vg_lite_matrix_t blit_matrix;
+            vg_lite_identity(&blit_matrix);
+            vg_lite_translate(x, y, &blit_matrix);
+            
+            vg_lite_blit(buffer, src_logo, &blit_matrix, VG_LITE_BLEND_SRC_OVER,
+                         make_color(effective_alpha, 255, 255, 255), VG_LITE_FILTER_POINT);
+        }
+    }
+    
     free_buffer(src_logo);
 }
 
