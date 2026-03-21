@@ -446,7 +446,88 @@ static vg_lite_buffer_t* create_gradient_image(int width, int height = 0) {
 }
 
 /**
- * Render arc image scene with circles filled using images/gradients
+ * Create an arc path (partial circle for stroke rendering)
+ * @param cx Center X
+ * @param cy Center Y  
+ * @param radius Arc radius
+ * @param start_angle Start angle in degrees (0 = right, counter-clockwise)
+ * @param end_angle End angle in degrees
+ * @return Path for the arc
+ */
+static vg_lite_path_t* create_arc_path(float cx, float cy, float radius, 
+                                        float start_angle, float end_angle) {
+    // Allocate path
+    vg_lite_path_t* path = (vg_lite_path_t*)malloc(sizeof(vg_lite_path_t));
+    if (!path) return nullptr;
+    
+    // Calculate arc points (use line segments to approximate)
+    const int num_segments = 32;
+    float angle_diff = end_angle - start_angle;
+    if (angle_diff <= 0) angle_diff += 360.0f;
+    
+    // Calculate data size: MOVE + (segments) LINE commands
+    int data_size = (1 + num_segments + 1) * sizeof(vg_lite_float_t) * 2 + 256;
+    uint8_t* path_data = (uint8_t*)malloc(data_size);
+    if (!path_data) {
+        free(path);
+        return nullptr;
+    }
+    
+    // Build path data
+    uint8_t* ptr = path_data;
+    vg_lite_float_t* coords;
+    
+    // Move to start point
+    float start_rad = start_angle * 3.14159265f / 180.0f;
+    float x1 = cx + radius * cosf(start_rad);
+    float y1 = cy - radius * sinf(start_rad);  // Y axis is inverted in screen coords
+    
+    *ptr++ = VLC_OP_MOVE;  // Move command
+    coords = (vg_lite_float_t*)ptr;
+    *coords++ = x1;
+    *coords++ = y1;
+    ptr = (uint8_t*)coords;
+    
+    // Draw line segments around the arc
+    for (int i = 1; i <= num_segments; i++) {
+        float angle = start_angle + (angle_diff * i / num_segments);
+        float rad = angle * 3.14159265f / 180.0f;
+        float x = cx + radius * cosf(rad);
+        float y = cy - radius * sinf(rad);
+        
+        *ptr++ = VLC_OP_LINE;  // Line command
+        coords = (vg_lite_float_t*)ptr;
+        *coords++ = x;
+        *coords++ = y;
+        ptr = (uint8_t*)coords;
+    }
+    
+    *ptr++ = VLC_OP_END;
+    
+    // Initialize path
+    float min_x = cx - radius - 1;
+    float min_y = cy - radius - 1;
+    float max_x = cx + radius + 1;
+    float max_y = cy + radius + 1;
+    
+    vg_lite_error_t err = vg_lite_init_arc_path(path, 
+                                                 VG_LITE_S8,  // Coordinate format
+                                                 VG_LITE_HIGH,  // Quality
+                                                 (uint32_t)(ptr - path_data),  // Data length
+                                                 path_data,
+                                                 min_x, min_y, max_x, max_y);
+    
+    if (err != VG_LITE_SUCCESS) {
+        free(path_data);
+        free(path);
+        return nullptr;
+    }
+    
+    return path;
+}
+
+/**
+ * Render arc image scene matching LVGL's arc_image demo
  * @param buffer Target buffer for rendering
  * @param opa Global opacity
  */
@@ -460,63 +541,63 @@ void render_scene_arc_image(vg_lite_buffer_t* buffer, uint8_t opa) {
     // Fill with white background
     fill_buffer(buffer, make_color(255, 255, 255, 255));
     
-    // Create gradient images for circle fills
-    vg_lite_buffer_t* gradient1 = create_gradient_image(40);
-    vg_lite_buffer_t* gradient2 = create_gradient_image(50);
-    vg_lite_buffer_t* gradient3 = create_gradient_image(60);
+    // LVGL arc_image scene parameters
+    // Grid: 8 columns x 8 rows
+    // Angles for each column
+    float angles[][2] = {
+        {355, 5},     // Small arc near 0
+        {85, 95},     // Small arc near 90
+        {175, 185},   // Small arc near 180
+        {265, 275},   // Small arc near 270
+        {30, 330},    // Large arc (most of circle)
+        {120, 60},    // Arc crossing 0
+        {0, 180},     // Half circle
+        {0, 360},     // Full circle
+    };
     
-    if (!gradient1 || !gradient2 || !gradient3) {
-        if (gradient1) free_buffer(gradient1);
-        if (gradient2) free_buffer(gradient2);
-        if (gradient3) free_buffer(gradient3);
-        return;
-    }
+    // Arc widths for each row group (4 widths x 2 rounded styles = 8 rows)
+    int32_t widths[] = {1, 5, 10, 100};
     
-    // Draw multiple circles in a grid pattern
-    float start_x = 80;
-    float start_y = 80;
-    float spacing_x = 100;
-    float spacing_y = 100;
+    // Cell layout (matching LVGL's grid)
+    float cell_width = 55.0f;
+    float cell_height = 30.0f;
+    float arc_radius = 10.0f;  // Arc radius in each cell
     
-    vg_lite_buffer_t* gradients[] = {gradient1, gradient2, gradient3};
-    int grad_idx = 0;
-    
-    for (int row = 0; row < 4; row++) {
-        for (int col = 0; col < 7; col++) {
-            float cx = start_x + col * spacing_x;
-            float cy = start_y + row * spacing_y;
-            float radius = 30 + (col % 3) * 10;
+    // Draw arcs in 8x8 grid
+    for (int row = 0; row < 8; row++) {
+        int width_idx = row % 4;
+        int rounded = row / 4;  // 0 = not rounded, 1 = rounded
+        
+        float line_width = (float)widths[width_idx];
+        if (line_width > arc_radius * 2) line_width = arc_radius * 2 - 2;
+        
+        for (int col = 0; col < 8; col++) {
+            // Cell center position
+            float cx = cell_width / 2 + col * cell_width + 40;
+            float cy = cell_height / 2 + row * cell_height + 30;
             
-            // Draw filled circle using gradient image
-            vg_lite_path_t* circle = create_circle_path(cx, cy, radius);
-            if (circle) {
-                vg_lite_draw(buffer, circle, VG_LITE_FILL_EVEN_ODD, &matrix, VG_LITE_BLEND_SRC_OVER,
-                             make_color(effective_alpha, 
-                                       ((col * 40) % 256), 
-                                       ((row * 50 + col * 30) % 256), 
-                                       ((row * 60) % 256)));
-                free_path(circle);
+            // Create arc path
+            float start_angle = angles[col][0];
+            float end_angle = angles[col][1];
+            
+            vg_lite_path_t* arc = create_arc_path(cx, cy, arc_radius, start_angle, end_angle);
+            if (arc) {
+                // Set stroke properties
+                vg_lite_cap_style_t cap = rounded ? VG_LITE_CAP_ROUND : VG_LITE_CAP_BUTT;
+                vg_lite_join_style_t join = rounded ? VG_LITE_JOIN_ROUND : VG_LITE_JOIN_MITER;
+                
+                vg_lite_set_stroke(arc, cap, join, line_width, 4.0f, 
+                                    nullptr, 0, 0,  // No dash
+                                    make_color(effective_alpha, 255, 255, 255));
+                
+                // Draw the stroked arc
+                vg_lite_draw(buffer, arc, VG_LITE_FILL_NON_ZERO, &matrix, 
+                            VG_LITE_BLEND_SRC_OVER, make_color(effective_alpha, 255, 255, 255));
+                
+                free_path(arc);
             }
-            
-            // Also blit the gradient image centered on the circle
-            vg_lite_buffer_t* grad = gradients[grad_idx % 3];
-            float img_x = cx - grad->width / 2.0f;
-            float img_y = cy - grad->height / 2.0f;
-            
-            vg_lite_matrix_t blit_matrix;
-            vg_lite_identity(&blit_matrix);
-            vg_lite_translate(img_x, img_y, &blit_matrix);
-            
-            vg_lite_blit(buffer, grad, &blit_matrix, VG_LITE_BLEND_SRC_OVER,
-                         make_color(effective_alpha / 2, 255, 255, 255), VG_LITE_FILTER_POINT);
-            
-            grad_idx++;
         }
     }
-    
-    free_buffer(gradient1);
-    free_buffer(gradient2);
-    free_buffer(gradient3);
     
     vg_lite_finish();
 }
