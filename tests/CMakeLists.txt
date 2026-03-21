@@ -31,6 +31,10 @@ if(TEST_SOURCES)
     file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/ref_imgs 
          DESTINATION ${CMAKE_BINARY_DIR}/tests)
     
+    # Copy vg_lite golden images to build directory for tests
+    file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/ref_imgs_vg_lite 
+         DESTINATION ${CMAKE_BINARY_DIR}/tests)
+    
     # Copy SVG test assets to build directory for tests
     file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/assets
          DESTINATION ${CMAKE_BINARY_DIR}/tests)

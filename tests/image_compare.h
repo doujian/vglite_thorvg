@@ -15,6 +15,9 @@
 #include <cmath>
 #include <vector>
 
+// Include vg_lite for format constants
+#include "../include/vg_lite.h"
+
 // STB implementations are in stb_impl.cpp - only declare here
 #include "stb/stb_image.h"
 #include "stb/stb_image_write.h"
@@ -79,33 +82,65 @@ inline Image loadImage(const std::string& path) {
  * Save image to PNG file
  */
 inline bool saveImage(const std::string& path, const Image& img) {
-    if (!img.valid()) return false;
-    return stbi_write_png(path.c_str(), img.width, img.height, 4, 
-                          img.data.data(), img.width * 4) != 0;
+    if (!img.valid()) {
+        fprintf(stderr, "[ERROR] saveImage: Invalid image (w=%d, h=%d, size=%zu)\n", 
+                img.width, img.height, img.data.size());
+        return false;
+    }
+    
+    // Ensure directory exists (basic check)
+    size_t lastSlash = path.find_last_of("/\\");
+    if (lastSlash != std::string::npos) {
+        // Path contains directory - note: we don't create directories here
+    }
+    
+    int result = stbi_write_png(path.c_str(), img.width, img.height, 4, 
+                                 img.data.data(), img.width * 4);
+    if (result == 0) {
+        fprintf(stderr, "[ERROR] saveImage: stbi_write_png failed for path: %s\n", path.c_str());
+        return false;
+    }
+    
+    // Verify file was created
+    FILE* f = fopen(path.c_str(), "rb");
+    if (!f) {
+        fprintf(stderr, "[ERROR] saveImage: File was not created: %s\n", path.c_str());
+        return false;
+    }
+    fclose(f);
+    
+    return true;
 }
+
+// Forward declaration - defined below
+inline Image bufferToImage(const uint8_t* data, int width, int height, 
+                           int format, int stride);
 
 /**
  * Save vg_lite_buffer_t to PNG file
+ * Supports multiple formats: BGRA8888, ARGB1555, RGB565, etc.
  */
 inline bool saveBufferToPng(const std::string& path, const uint8_t* data, 
-                            int width, int height, int format) {
-    Image img(width, height);
-    
-    // Convert from vg_lite format to RGBA
-    for (int y = 0; y < height; y++) {
-        for (int x = 0; x < width; x++) {
-            uint32_t pixel;
-            const uint8_t* src = data + (y * width + x) * 4;
-            
-            // Assuming BGRA8888 format (most common)
-            pixel = ((uint32_t)src[3] << 24) | ((uint32_t)src[2] << 16) |
-                    ((uint32_t)src[1] << 8) | (uint32_t)src[0];
-            
-            img.setPixelBGRA(x, y, pixel);
-        }
+                            int width, int height, int format, int stride = 0) {
+    // Validate input
+    if (!data || width <= 0 || height <= 0) {
+        fprintf(stderr, "[ERROR] saveBufferToPng: Invalid parameters (data=%p, w=%d, h=%d)\n", 
+                (void*)data, width, height);
+        return false;
     }
     
-    return saveImage(path, img);
+    // Reuse bufferToImage for format conversion
+    Image img = bufferToImage(data, width, height, format, stride);
+    if (!img.valid()) {
+        fprintf(stderr, "[ERROR] saveBufferToPng: Failed to convert buffer to image\n");
+        return false;
+    }
+    
+    bool result = saveImage(path, img);
+    if (!result) {
+        fprintf(stderr, "[ERROR] saveBufferToPng: stbi_write_png failed for path: %s\n", path.c_str());
+    }
+    return result;
 }
 
 /**
@@ -173,19 +208,146 @@ inline CompareResult compareImages(const Image& actual, const Image& expected,
 
 /**
  * Convert vg_lite_buffer_t to Image
+ * Supports multiple formats: BGRA8888, ARGB1555, RGB565, etc.
  */
-inline Image bufferToImage(const uint8_t* data, int width, int height) {
+inline Image bufferToImage(const uint8_t* data, int width, int height, 
+                           int format = VG_LITE_BGRA8888, int stride = 0) {
     Image img(width, height);
     
-    for (int y = 0; y < height; y++) {
-        for (int x = 0; x < width; x++) {
-            size_t offset = (y * width + x) * 4;
-            // Assume BGRA8888 format
-            uint32_t bgra = ((uint32_t)data[offset + 3] << 24) |
-                           ((uint32_t)data[offset + 2] << 16) |
-                           ((uint32_t)data[offset + 1] << 8) |
-                           (uint32_t)data[offset];
-            img.setPixelBGRA(x, y, bgra);
+    // Default stride to width * bytes_per_pixel
+    if (stride == 0) {
+        switch (format) {
+            case VG_LITE_ARGB1555:
+            case VG_LITE_RGB565:
+            case VG_LITE_ARGB4444:
+            case VG_LITE_BGRA5551:
+            case VG_LITE_BGRA4444:
+            case VG_LITE_BGR565:
+                stride = width * 2;
+                break;
+            case VG_LITE_L8:
+            case VG_LITE_A8:
+                stride = width;
+                break;
+            default:
+                stride = width * 4;
+                break;
+        }
+    }
+    
+    switch (format) {
+        case VG_LITE_ARGB1555: {
+            // ARGB1555: A(1) R(5) G(5) B(5) = 16 bits
+            const uint16_t* src = (const uint16_t*)data;
+            for (int y = 0; y < height; y++) {
+                for (int x = 0; x < width; x++) {
+                    uint16_t pixel = src[y * (stride / 2) + x];
+                    uint8_t a = (pixel >> 15) & 0x01;
+                    uint8_t r = (pixel >> 10) & 0x1F;
+                    uint8_t g = (pixel >> 5) & 0x1F;
+                    uint8_t b = pixel & 0x1F;
+                    // Convert 5-bit to 8-bit
+                    r = (r * 255) / 31;
+                    g = (g * 255) / 31;
+                    b = (b * 255) / 31;
+                    a = a ? 255 : 0;
+                    img.setPixelBGRA(x, y, (a << 24) | (r << 16) | (g << 8) | b);
+                }
+            }
+            break;
+        }
+        
+        case VG_LITE_RGB565:
+        case VG_LITE_BGR565: {
+            // RGB565: R(5) G(6) B(5) = 16 bits
+            const uint16_t* src = (const uint16_t*)data;
+            for (int y = 0; y < height; y++) {
+                for (int x = 0; x < width; x++) {
+                    uint16_t pixel = src[y * (stride / 2) + x];
+                    uint8_t r, g, b;
+                    if (format == VG_LITE_RGB565) {
+                        r = (pixel >> 11) & 0x1F;
+                        g = (pixel >> 5) & 0x3F;
+                        b = pixel & 0x1F;
+                    } else {
+                        b = (pixel >> 11) & 0x1F;
+                        g = (pixel >> 5) & 0x3F;
+                        r = pixel & 0x1F;
+                    }
+                    r = (r * 255) / 31;
+                    g = (g * 255) / 63;
+                    b = (b * 255) / 31;
+                    img.setPixelBGRA(x, y, (0xFF << 24) | (r << 16) | (g << 8) | b);
+                }
+            }
+            break;
+        }
+        
+        case VG_LITE_ARGB4444:
+        case VG_LITE_BGRA4444: {
+            // ARGB4444: A(4) R(4) G(4) B(4) = 16 bits
+            const uint16_t* src = (const uint16_t*)data;
+            for (int y = 0; y < height; y++) {
+                for (int x = 0; x < width; x++) {
+                    uint16_t pixel = src[y * (stride / 2) + x];
+                    uint8_t a, r, g, b;
+                    if (format == VG_LITE_ARGB4444) {
+                        a = (pixel >> 12) & 0x0F;
+                        r = (pixel >> 8) & 0x0F;
+                        g = (pixel >> 4) & 0x0F;
+                        b = pixel & 0x0F;
+                    } else {
+                        a = (pixel >> 12) & 0x0F;
+                        b = (pixel >> 8) & 0x0F;
+                        g = (pixel >> 4) & 0x0F;
+                        r = pixel & 0x0F;
+                    }
+                    // Convert 4-bit to 8-bit
+                    a = a | (a << 4);
+                    r = r | (r << 4);
+                    g = g | (g << 4);
+                    b = b | (b << 4);
+                    img.setPixelBGRA(x, y, (a << 24) | (r << 16) | (g << 8) | b);
+                }
+            }
+            break;
+        }
+        
+        case VG_LITE_L8: {
+            // L8: 8-bit luminance
+            for (int y = 0; y < height; y++) {
+                for (int x = 0; x < width; x++) {
+                    uint8_t l = data[y * stride + x];
+                    img.setPixelBGRA(x, y, (0xFF << 24) | (l << 16) | (l << 8) | l);
+                }
+            }
+            break;
+        }
+        
+        case VG_LITE_A8: {
+            // A8: 8-bit alpha
+            for (int y = 0; y < height; y++) {
+                for (int x = 0; x < width; x++) {
+                    uint8_t a = data[y * stride + x];
+                    img.setPixelBGRA(x, y, (a << 24) | (0xFF << 16) | (0xFF << 8) | 0xFF);
+                }
+            }
+            break;
+        }
+        
+        default: {
+            // BGRA8888 or other 32-bit formats
+            for (int y = 0; y < height; y++) {
+                for (int x = 0; x < width; x++) {
+                    size_t offset = y * stride + x * 4;
+                    uint32_t bgra = ((uint32_t)data[offset + 3] << 24) |
+                                   ((uint32_t)data[offset + 2] << 16) |
+                                   ((uint32_t)data[offset + 1] << 8) |
+                                   (uint32_t)data[offset];
+                    img.setPixelBGRA(x, y, bgra);
+                }
+            }
+            break;
         }
     }
     

@@ -310,6 +310,50 @@ inline bool shouldSkipRenderingTests() {
 }
 
 /**
+ * Get the directory containing the test executable
+ * On Windows, uses GetModuleFileNameW for Unicode support
+ * @return Directory path with trailing separator
+ */
+inline std::string get_exe_directory() {
+#ifdef _WIN32
+    wchar_t wpath[MAX_PATH * 2];  // Use larger buffer for long paths
+    HMODULE hModule = GetModuleHandleW(nullptr);
+    if (GetModuleFileNameW(hModule, wpath, MAX_PATH * 2) == 0) {
+        // Fallback to current directory if we can't get exe path
+        return "./";
+    }
+    
+    // Convert wide string to narrow string
+    char path[MAX_PATH * 2];
+    WideCharToMultiByte(CP_UTF8, 0, wpath, -1, path, MAX_PATH * 2, nullptr, nullptr);
+    
+    // Find the last separator and truncate to get directory
+    std::string result(path);
+    size_t last_sep = result.find_last_of("\\/");
+    if (last_sep != std::string::npos) {
+        result = result.substr(0, last_sep + 1);
+    } else {
+        result = "./";
+    }
+    return result;
+#else
+    // On non-Windows platforms, use /proc/self/exe or argv[0]
+    char path[1024];
+    ssize_t len = readlink("/proc/self/exe", path, sizeof(path) - 1);
+    if (len != -1) {
+        path[len] = '\0';
+        std::string result(path);
+        size_t last_sep = result.find_last_of('/');
+        if (last_sep != std::string::npos) {
+            result = result.substr(0, last_sep + 1);
+        }
+        return result;
+    }
+    return "./";
+#endif
+}
+
+/**
  * Get reference images directory path (relative to project root)
  * Works from build directory or project root
  */
@@ -393,9 +437,41 @@ inline vg_lite_buffer_t* create_buffer(uint32_t width, uint32_t height,
     buffer->tiled = VG_LITE_LINEAR;
     
     // Calculate stride: bytes per pixel * width
-    // BGRA8888 = 4 bytes per pixel
-    int bytes_per_pixel = (format == VG_LITE_BGRA8888 || format == VG_LITE_RGBA8888) ? 4 : 4;
+    // Determine bytes per pixel based on format
+    int bytes_per_pixel = 4;  // default for 32-bit formats
+    switch(format) {
+        case VG_LITE_BGRA8888:
+        case VG_LITE_RGBA8888:
+        case VG_LITE_ABGR8888:
+        case VG_LITE_ARGB8888:
+            bytes_per_pixel = 4;
+            break;
+        case VG_LITE_RGB565:
+        case VG_LITE_ARGB4444:
+        case VG_LITE_BGRA5551:
+        case VG_LITE_BGRA4444:
+        case VG_LITE_BGR565:
+            bytes_per_pixel = 2;
+            break;
+        case VG_LITE_L8:
+        case VG_LITE_A8:
+            bytes_per_pixel = 1;
+            break;
+        default:
+            bytes_per_pixel = 4;
+    }
+    
+    // Calculate stride with proper alignment for all formats
+    // Stride must be aligned to 64 bytes per VG_LITE_BUF_ADDR_ALIGN
     buffer->stride = width * bytes_per_pixel;
+    // Ensure stride is at least 4-byte aligned for 16-bit formats
+    if (bytes_per_pixel < 4) {
+        buffer->stride = (buffer->stride + 3) & ~3;  // Round up to 4-byte boundary
+    }
+    
+    // Set default image mode for blit operations
+    buffer->image_mode = VG_LITE_NORMAL_IMAGE_MODE;
+    buffer->transparency_mode = VG_LITE_IMAGE_TRANSPARENT;
     
     // Allocate aligned memory (64-byte alignment as per VG_LITE requirements)
     size_t size = height * buffer->stride;
@@ -474,25 +550,34 @@ inline vg_lite_path_t* create_rect_path(float x, float y, float w, float h) {
     *(float*)ptr = x + w; ptr += 4;
     *(float*)ptr = y + h; ptr += 4;
     
-    // LINE to (x, y+h)
-    *(uint32_t*)ptr = VLC_OP_LINE; ptr += 4;
-    *(float*)ptr = x; ptr += 4;
-    *(float*)ptr = y + h; ptr += 4;
-    
-    // LINE to (x, y) - close the rect
+    // LINE to (x, y) - close the rect explicitly
     *(uint32_t*)ptr = VLC_OP_LINE; ptr += 4;
     *(float*)ptr = x; ptr += 4;
     *(float*)ptr = y; ptr += 4;
-    
-    // CLOSE
+
+    // CLOSE path
     *(uint32_t*)ptr = VLC_OP_CLOSE; ptr += 4;
-    
-    // END
+
+    // END path
     *(uint32_t*)ptr = VLC_OP_END; ptr += 4;
-    
+
     path->path = data;
     path->path_length = total_bytes;
+
     return path;
+}
+
+/**
+ * Create a rounded rectangle path (simplified - just use regular rectangle)
+ * For true rounded rectangles, vg_lite doesn't support border-radius directly
+ * so we approximate with a standard rectangle
+ */
+inline vg_lite_path_t* create_round_rect_path(float x, float y, float w, float h, float radius) {
+    // For simplicity, just use standard rectangle
+    // vg_lite doesn't support border-radius directly
+    // We could implement rounded corners using cubic bezier curves
+    // but for the tests, we approximate with a regular rectangle
+    return create_rect_path(x, y, w, h);
 }
 
 /**
@@ -614,13 +699,116 @@ inline void set_pixel(vg_lite_buffer_t* buf, uint32_t x, uint32_t y, vg_lite_col
 }
 
 /**
+ * ARGB1555 pixel components (1-bit alpha, 5-bit R/G/B)
+ */
+struct argb1555_pixel_t {
+    uint8_t a;  // 0-1
+    uint8_t r;  // 0-31
+    uint8_t g;  // 0-31
+    uint8_t b;  // 0-31
+};
+
+/**
+ * Get ARGB1555 pixel from buffer
+ * ARGB1555 layout: A(1) | R(5) | G(5) | B(5)
+ */
+inline argb1555_pixel_t get_pixel_argb1555(vg_lite_buffer_t* buf, uint32_t x, uint32_t y) {
+    argb1555_pixel_t px = {0, 0, 0, 0};
+    if (!buf || !buf->memory || x >= buf->width || y >= buf->height) return px;
+    uint16_t* data = (uint16_t*)buf->memory;
+    uint16_t val = data[y * (buf->stride / 2) + x];
+    px.a = (val >> 15) & 0x01;
+    px.r = (val >> 10) & 0x1F;
+    px.g = (val >> 5) & 0x1F;
+    px.b = val & 0x1F;
+    return px;
+}
+
+/**
  * Fill buffer with color
+ * Handles different pixel formats correctly
  */
 inline void fill_buffer(vg_lite_buffer_t* buf, vg_lite_color_t color) {
     if (!buf || !buf->memory) return;
-    uint32_t* px = (uint32_t*)buf->memory;
-    uint32_t count = buf->height * (buf->stride / 4);
-    for (uint32_t i = 0; i < count; i++) px[i] = color;
+    
+    // Extract ARGB components from color (format: AARRGGBB in make_color)
+    uint8_t a = (color >> 24) & 0xFF;
+    uint8_t r = (color >> 16) & 0xFF;
+    uint8_t g = (color >> 8) & 0xFF;
+    uint8_t b = color & 0xFF;
+    
+    // Handle different formats
+    switch (buf->format) {
+        case VG_LITE_ARGB1555:
+        case VG_LITE_RGBA5551:
+        case VG_LITE_ABGR1555:
+        case VG_LITE_BGRA5551: {
+            // 16-bit formats: ARGB1555 - A(1) R(5) G(5) B(5)
+            uint16_t* px = (uint16_t*)buf->memory;
+            uint32_t count = buf->height * (buf->stride / 2);
+            uint16_t val;
+            if (buf->format == VG_LITE_ARGB1555) {
+                // ARGB1555: A(1) R(5) G(5) B(5)
+                uint8_t a1 = (a > 127) ? 1 : 0;
+                uint8_t r5 = (r * 31) / 255;
+                uint8_t g5 = (g * 31) / 255;
+                uint8_t b5 = (b * 31) / 255;
+                val = (a1 << 15) | (r5 << 10) | (g5 << 5) | b5;
+            } else {
+                // Default 16-bit fill
+                val = 0xFFFF;
+            }
+            for (uint32_t i = 0; i < count; i++) px[i] = val;
+            break;
+        }
+        
+        case VG_LITE_RGB565:
+        case VG_LITE_BGR565: {
+            // 16-bit RGB565: R(5) G(6) B(5)
+            uint16_t* px = (uint16_t*)buf->memory;
+            uint32_t count = buf->height * (buf->stride / 2);
+            uint8_t r5 = (r * 31) / 255;
+            uint8_t g6 = (g * 63) / 255;
+            uint8_t b5 = (b * 31) / 255;
+            uint16_t val = (r5 << 11) | (g6 << 5) | b5;
+            for (uint32_t i = 0; i < count; i++) px[i] = val;
+            break;
+        }
+        
+        case VG_LITE_ARGB4444:
+        case VG_LITE_BGRA4444:
+        case VG_LITE_RGBA4444:
+        case VG_LITE_ABGR4444: {
+            // 16-bit ARGB4444: A(4) R(4) G(4) B(4)
+            uint16_t* px = (uint16_t*)buf->memory;
+            uint32_t count = buf->height * (buf->stride / 2);
+            uint8_t a4 = a >> 4;
+            uint8_t r4 = r >> 4;
+            uint8_t g4 = g >> 4;
+            uint8_t b4 = b >> 4;
+            uint16_t val = (a4 << 12) | (r4 << 8) | (g4 << 4) | b4;
+            for (uint32_t i = 0; i < count; i++) px[i] = val;
+            break;
+        }
+        
+        case VG_LITE_L8:
+        case VG_LITE_A8: {
+            // 8-bit formats
+            uint8_t* px = (uint8_t*)buf->memory;
+            uint32_t count = buf->height * buf->stride;
+            uint8_t val = (buf->format == VG_LITE_L8) ? r : a;  // L8 uses red, A8 uses alpha
+            for (uint32_t i = 0; i < count; i++) px[i] = val;
+            break;
+        }
+        
+        default: {
+            // 32-bit formats (BGRA8888, etc.)
+            uint32_t* px = (uint32_t*)buf->memory;
+            uint32_t count = buf->height * (buf->stride / 4);
+            for (uint32_t i = 0; i < count; i++) px[i] = color;
+            break;
+        }
+    }
 }
 
 /**
@@ -673,11 +861,20 @@ inline bool save_buffer_to_json(vg_lite_buffer_t* buf, const std::string& path, 
 }
 
 /**
- * Save buffer to PNG
+ * Save buffer to PNG with logging
  */
 inline bool save_buffer_to_png(vg_lite_buffer_t* buf, const std::string& path) {
-    if (!buf || !buf->memory) return false;
-    return saveBufferToPng(path, (const uint8_t*)buf->memory, buf->width, buf->height, buf->format);
+    if (!buf || !buf->memory) {
+        std::cerr << "\n[ERROR] save_buffer_to_png: Invalid buffer (null)" << std::endl;
+        return false;
+    }
+    bool result = saveBufferToPng(path, (const uint8_t*)buf->memory, buf->width, buf->height, buf->format, buf->stride);
+    if (result) {
+        std::cout << "\n[OUTPUT] Saved PNG: " << path << std::endl;
+    } else {
+        std::cerr << "\n[ERROR] Failed to save PNG: " << path << std::endl;
+    }
+    return result;
 }
 
 /**
@@ -687,31 +884,45 @@ inline bool compare_with_golden(vg_lite_buffer_t* buf, const std::string& golden
                                  double tolerance = 0.05) {
     if (!buf || !buf->memory) return false;
     
-    std::string full = "tests/ref_imgs/" + golden_path;
+    // Determine the full path based on golden_path content
+    std::string full;
+    
+    if (golden_path.find("../ref_imgs_vg_lite/") == 0) {
+        // Path starts with ../ref_imgs_vg_lite/ - remove the ../ since we're in tests directory
+        full = golden_path.substr(3);  // Skip "../"
+    } else if (golden_path.find("ref_imgs_vg_lite/") == 0) {
+        // Path starts with ref_imgs_vg_lite/ - use directly
+        full = golden_path;
+    } else {
+        // Default to ref_imgs directory
+        full = "ref_imgs/" + golden_path;
+    }
+    
     Image golden = loadImage(full);
     
     // If path doesn't already have extension, try variants
     if (!golden.valid() && golden_path.find(".png") == std::string::npos) {
         // Try .lp64.png first (64-bit systems)
-        full = "tests/ref_imgs/" + golden_path + ".lp64.png";
-        golden = loadImage(full);
+        std::string variant = full + ".lp64.png";
+        golden = loadImage(variant);
         
         // Try .lp32.png (32-bit systems)
         if (!golden.valid()) {
-            full = "tests/ref_imgs/" + golden_path + ".lp32.png";
-            golden = loadImage(full);
+            variant = full + ".lp32.png";
+            golden = loadImage(variant);
         }
         
         // Try plain .png
         if (!golden.valid()) {
-            full = "tests/ref_imgs/" + golden_path + ".png";
-            golden = loadImage(full);
+            variant = full + ".png";
+            golden = loadImage(variant);
         }
     }
     
     if (!golden.valid()) return false;
     
-    Image actual = bufferToImage((const uint8_t*)buf->memory, buf->width, buf->height);
+    Image actual = bufferToImage((const uint8_t*)buf->memory, buf->width, buf->height, 
+                                  buf->format, buf->stride);
     CompareResult res = compareImages(actual, golden, tolerance);
     
     if (!res.match) saveImage("test_output_mismatch.png", actual);
@@ -723,28 +934,54 @@ inline bool compare_with_golden(vg_lite_buffer_t* buf, const std::string& golden
  */
 inline std::string get_comparison_message(vg_lite_buffer_t* buf, const std::string& golden_path,
                                            double tolerance = 0.05) {
-    std::string full = "tests/ref_imgs/" + golden_path;
+    if (!buf || !buf->memory) return "Invalid buffer";
+    
+    // Determine the full path based on golden_path content
+    std::string full;
+    
+    if (golden_path.find("../ref_imgs_vg_lite/") == 0) {
+        // Path starts with ../ref_imgs_vg_lite/ - remove the ../ since we're in tests directory
+        full = golden_path.substr(3);  // Skip "../"
+    } else if (golden_path.find("ref_imgs_vg_lite/") == 0) {
+        // Path starts with ref_imgs_vg_lite/ - use directly
+        full = golden_path;
+    } else {
+        // Default to ref_imgs directory
+        full = "ref_imgs/" + golden_path;
+    }
+    
+    // Debug: print the path we're trying to load
+    printf("DEBUG: Attempting to load golden image: %s\n", full.c_str());
+    
     Image golden = loadImage(full);
     
-    // Try variants if path doesn't have extension
+    // Debug: check if image loaded
+    printf("DEBUG: Image loaded: %s (size: %dx%d)\n", 
+           golden.valid() ? "YES" : "NO",
+           golden.valid() ? golden.width : 0,
+           golden.valid() ? golden.height : 0);
+    
+    // If path doesn't already have extension, try variants
     if (!golden.valid() && golden_path.find(".png") == std::string::npos) {
-        full = "tests/ref_imgs/" + golden_path + ".lp64.png";
-        golden = loadImage(full);
+        // Try .lp64.png first (64-bit systems)
+        std::string variant = full + ".lp64.png";
+        golden = loadImage(variant);
         
         if (!golden.valid()) {
-            full = "tests/ref_imgs/" + golden_path + ".lp32.png";
-            golden = loadImage(full);
+            variant = full + ".lp32.png";
+            golden = loadImage(variant);
         }
         
         if (!golden.valid()) {
-            full = "tests/ref_imgs/" + golden_path + ".png";
-            golden = loadImage(full);
+            variant = full + ".png";
+            golden = loadImage(variant);
         }
     }
     
     if (!golden.valid()) return "Failed to load golden: " + full;
     
-    Image actual = bufferToImage((const uint8_t*)buf->memory, buf->width, buf->height);
+    Image actual = bufferToImage((const uint8_t*)buf->memory, buf->width, buf->height, 
+                                  buf->format, buf->stride);
     return compareImages(actual, golden, tolerance).message;
 }
 

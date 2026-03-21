@@ -186,6 +186,13 @@ typedef struct {
 } vg_color_bgra5551_t;
 
 typedef struct {
+    uint16_t alpha : 1;
+    uint16_t red : 5;
+    uint16_t green : 5;
+    uint16_t blue : 5;
+} vg_color_argb1555_t;
+
+typedef struct {
     vg_lite_float_t x;
     vg_lite_float_t y;
 } vg_lite_fpoint_t;
@@ -628,6 +635,19 @@ static vg_lite_converter<vg_color32_t, uint8_t> conv_l8_to_bgra8888(
 
 static vg_lite_converter<vg_color32_t, vg_color_bgra5551_t> conv_bgra5551_to_bgra8888(
     [](vg_color32_t * dest, const vg_color_bgra5551_t * src, vg_lite_uint32_t px_size, vg_lite_uint32_t /* color */)
+{
+    while(px_size--) {
+        dest->red = src->red * 0xFF / 0x1F;
+        dest->green = src->green * 0xFF / 0x1F;
+        dest->blue = src->blue * 0xFF / 0x1F;
+        dest->alpha = src->alpha ? 0xFF : 0;
+        src++;
+        dest++;
+    }
+});
+
+static vg_lite_converter<vg_color32_t, vg_color_argb1555_t> conv_argb1555_to_bgra8888(
+    [](vg_color32_t * dest, const vg_color_argb1555_t * src, vg_lite_uint32_t px_size, vg_lite_uint32_t /* color */)
 {
     while(px_size--) {
         dest->red = src->red * 0xFF / 0x1F;
@@ -1088,6 +1108,19 @@ extern "C" {
         }
     }
 
+    static void picture_bgra8888_to_argb1555(vg_color_argb1555_t * dest, const vg_color32_t * src, vg_lite_uint32_t px_size)
+    {
+        while(px_size--) {
+            /* Convert from BGRA8888 to ARGB1555: A(1) R(5) G(5) B(5) */
+            dest->alpha = src->alpha > (0xFF / 2) ? 1 : 0;
+            dest->red = src->red * 0x1F / 0xFF;
+            dest->green = src->green * 0x1F / 0xFF;
+            dest->blue = src->blue * 0x1F / 0xFF;
+            src++;
+            dest++;
+        }
+    }
+
     static void picture_bgra8888_to_bgra4444(vg_color_bgra4444_t * dest, const vg_color32_t * src, vg_lite_uint32_t px_size)
     {
         while(px_size--) {
@@ -1179,6 +1212,11 @@ extern "C" {
                 break;
             case VG_LITE_BGRA5551:
                 picture_bgra8888_to_bgra5551((vg_color_bgra5551_t *)ctx->target_buffer,
+                                             (const vg_color32_t *)ctx->get_temp_target_buffer(),
+                                             ctx->target_px_size);
+                break;
+            case VG_LITE_ARGB1555:
+                picture_bgra8888_to_argb1555((vg_color_argb1555_t *)ctx->target_buffer,
                                              (const vg_color32_t *)ctx->get_temp_target_buffer(),
                                              ctx->target_px_size);
                 break;
@@ -3233,6 +3271,13 @@ static Result picture_load(vg_lite_ctx * ctx, Picture * picture, const vg_lite_b
 
             case VG_LITE_BGRA4444: {
                     conv_bgra4444_to_bgra8888.convert(&target, source);
+                }
+                break;
+
+            case VG_LITE_ARGB1555:
+            case VG_LITE_ABGR1555:
+            case VG_LITE_RGBA5551: {
+                    conv_argb1555_to_bgra8888.convert(&target, source);
                 }
                 break;
 
