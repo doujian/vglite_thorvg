@@ -451,6 +451,7 @@ inline vg_lite_buffer_t* create_buffer(uint32_t width, uint32_t height,
         case VG_LITE_BGRA5551:
         case VG_LITE_BGRA4444:
         case VG_LITE_BGR565:
+        case VG_LITE_ARGB1555:
             bytes_per_pixel = 2;
             break;
         case VG_LITE_L8:
